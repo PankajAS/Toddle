@@ -1,0 +1,44 @@
+
+
+
+
+<ion-content  class="loginContentBg" text-center>
+
+<h1  class="color-white margin-top italic-text">Toddle</h1>
+<p class="color-white italic-text">Welcome to Belgium's best daycare</p>
+
+<ion-grid >
+<ion-row style="width:90%;" >
+
+    <ion-col col-12 >
+      <ion-item class="transparent-control">
+        <ion-label stacked  style="color:#ffffff">USERNAME</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="transparent-control">
+        <ion-label stacked   style="color:#ffffff">PASSWORD</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+    </ion-col>
+</ion-row>
+</ion-grid>
+
+<ion-row style="padding:0px">
+    <ion-col  style="float:right; padding:0px">
+      <button style="width:50%;padding:30px;"
+        [navPush]="KidslistPage1"
+        ion-button 
+        class="no-padding button-white">
+        SIGN IN
+      </button>
+    </ion-col>
+</ion-row>
+
+<ion-row >
+    <ion-col  style="float:right;">
+      <button style="width:50%;padding:20px;text-transform: none;"  ion-button class="no-padding color-white italic-text" clear >Create an Account</button>
+    </ion-col>
+</ion-row>
+
+</ion-content>
