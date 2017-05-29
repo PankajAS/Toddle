@@ -1,3 +1,29 @@
 page-kidslist {
+  ion-input{
+    background-color: #F1F1F1;
+  }
+  ion-label{
+    font-size: small;
+    color:grey;
+  }
+.icon{
+  position:absolute;top:5px;right:16px;
+}
+  .time{
+    position:absolute;bottom:0;left:auto;
+  }
+
+  .name{
+    color: #0D9C80; font-weight: bold; margin-bottom: 5px;
+  }
+
+  .years{
+    font-size: 10px ; top: 0px;
+  }
+
+  .span-time{
+    font-size: large; font-style: oblique;color:grey;
+  }
+
 
 }
