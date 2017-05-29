@@ -10,203 +10,186 @@
 <ion-content padding>
   <ion-input type="text" placeholder="Search Names" text-center name="title"></ion-input>
 
+  <!-- //////////////////////////////-->
   <ion-grid>
-    <ion-label color="grey">
-      <ion-icon name="sync" item-left></ion-icon>
-      <span>Synced 5 mins ago</span>
-    </ion-label>
-    <ion-row>
-      <ion-col col-6 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+    <ion-row  responsive-sm>
+      <ion-col col-6 col-lg-2 col-md-4>
         <ion-card>
+          <ion-row class="header">
 
-            <ion-item>
-              <ion-avatar item-left>
-                <img src="../../assets/avatar-ts-woody.png">
-              </ion-avatar>
-              <div item-left>
-              <div style="position:absolute;top:5px;right:16px;">
-                <ion-icon name="timer" color="primary"></ion-icon>
-              </div>
-              <div style="position:absolute;bottom:0;left:auto;">
-                <span style="font-size: large; font-style: oblique;color:grey;">1h</span><ion-note>24m</ion-note>
-              </div>
-              </div>
-            </ion-item>
+            <ion-col col-10 col-md-10 col-sm-8 col-lg-8>
+                  <ion-item no-padding style="margin:0px">
+                    <ion-avatar no-margin style="">
+                      <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
 
-          <ion-card-content>
-            <ion-label no-margin margin-top="2">John Kenny</ion-label>
-            <ion-item style="margin: 0px !important;">
-              <p style="margin: 0px !important;">
-              5 <span style="font-size: 10px ; top: 0px">YEARS</span>
-              <ion-icon item-right color="grey" name="man"></ion-icon></p>
-            </ion-item>
-          </ion-card-content>
+                      <span item-right style="position:absolute;bottom:0px;left: 4rem">
+            <span style="font-size: 1.5rem; font-style: oblique;color:grey;">1h</span><ion-note style="font-size: 1rem">24m</ion-note></span>
 
-        </ion-card>
-      </ion-col>
+                    </ion-avatar>
 
-      <ion-col col-6 col-sm-9 col-md-6 col-lg-4 col-xl-3>
-        <ion-card>
 
-          <ion-item>
-            <ion-avatar item-left>
-              <img src="../../assets/avatar-ts-woody.png">
-            </ion-avatar>
-            <div item-left>
-              <div style="position:absolute;top:5px;right:16px;">
-                <ion-icon name="timer" color="primary"></ion-icon>
-              </div>
-              <div style="position:absolute;bottom:0;left:auto;">
-                <span style="font-size: large; font-style: oblique;color:grey;">1h</span><ion-note>24m</ion-note>
-              </div>
-            </div>
-          </ion-item>
-          <ion-item>
-            <div color="primary"  style=" font-weight: bold; margin-bottom: 5px">John Kenny</div>
+                  </ion-item>
 
-            <div>
-              5 <span style="font-size: 10px ; top: 0px">YEARS</span>
+            </ion-col>
+
+            <ion-col >
+               <ion-icon name="cog"></ion-icon>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row responsive-sm>
+            <ion-col style="bottom:-10px">
+              <h4 class="name">John Smith</h4>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col style="bottom:5px">
+              5 <span style="font-size: 0.7rem ; top: 0px">YEARS</span>
+            </ion-col>
+            <ion-col style="bottom:5px">
               <ion-icon float-right color="grey" name="man"></ion-icon>
-            </div>
-          </ion-item>
-
+            </ion-col>
+          </ion-row>
         </ion-card>
       </ion-col>
 
-      <ion-col col-6 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+
+
+      <ion-col col-6 col-lg-2 col-md-4>
         <ion-card>
+          <ion-row class="header">
 
-          <ion-item>
-            <ion-avatar item-left>
-              <img src="../../assets/avatar-ts-woody.png">
-            </ion-avatar>
-            <div item-left>
-              <div style="position:absolute;top:5px;right:16px;">
-                <ion-icon name="timer" color="primary"></ion-icon>
-              </div>
-              <div style="position:absolute;bottom:0;left:auto;">
-                <span style="font-size: large; font-style: oblique;color:grey;">1h</span><ion-note>24m</ion-note>
-              </div>
-            </div>
-          </ion-item>
-          <ion-item>
-            <div color="primary"  style=" font-weight: bold; margin-bottom: 5px">John Kenny</div>
+            <ion-col >
+              <ion-row>
+                <ion-col>
+                  <ion-item no-padding style="margin:0px">
+                    <ion-avatar no-margin>
+                      <img
+                        src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
+                    </ion-avatar>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-col>
 
-            <div>
+            <ion-col >
+            <span style="position:absolute;bottom:0;">
+            <span style="font-size: large; font-style: oblique;color:grey;">1h</span><ion-note>24m</ion-note></span>
+              <ion-item>
+                <ion-icon name="cog"></ion-icon>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+            <ion-col style="bottom:-10px">
+              <h4 class="name">John Smith</h4>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col style="bottom:5px">
               5 <span style="font-size: 10px ; top: 0px">YEARS</span>
+            </ion-col>
+            <ion-col style="bottom:5px">
               <ion-icon float-right color="grey" name="man"></ion-icon>
-            </div>
-          </ion-item>
-
+            </ion-col>
+          </ion-row>
         </ion-card>
       </ion-col>
 
-      <ion-col col-6 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+
+      <ion-col col-6 col-lg-2 col-md-4 >
         <ion-card>
+          <ion-row class="header">
 
-          <ion-item>
-            <ion-avatar item-left>
-              <img src="../../assets/avatar-ts-woody.png">
-            </ion-avatar>
-            <div item-left>
-              <div style="position:absolute;top:5px;right:16px;">
-                <ion-icon name="timer" color="primary"></ion-icon>
-              </div>
-              <div style="position:absolute;bottom:0;left:auto;">
-                <span style="font-size: large; font-style: oblique;color:grey;">1h</span><ion-note>24m</ion-note>
-              </div>
-            </div>
-          </ion-item>
-          <ion-item>
-            <div color="primary"  style=" font-weight: bold; margin-bottom: 5px;">John Kenny</div>
+            <ion-col >
+              <ion-row>
+                <ion-col>
+                  <ion-item no-padding style="margin:0px">
+                    <ion-avatar no-margin>
+                      <img
+                        src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
+                    </ion-avatar>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-col>
 
-            <div>
+            <ion-col >
+            <span style="position:absolute;bottom:0;">
+            <span style="font-size: large; font-style: oblique;color:grey;">1h</span><ion-note>24m</ion-note></span>
+              <ion-item>
+                <ion-icon name="cog"></ion-icon>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+            <ion-col style="bottom:-10px">
+              <h4 class="name">John Smith</h4>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col style="bottom:5px">
               5 <span style="font-size: 10px ; top: 0px">YEARS</span>
+            </ion-col>
+            <ion-col style="bottom:5px">
               <ion-icon float-right color="grey" name="man"></ion-icon>
-            </div>
-          </ion-item>
-
+            </ion-col>
+          </ion-row>
         </ion-card>
       </ion-col>
 
-      <ion-col col-6 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+      <ion-col col-6 col-lg-2 col-md-3 >
         <ion-card>
+          <ion-row class="header">
 
-          <ion-item>
-            <ion-avatar item-left>
-              <img src="../../assets/avatar-ts-woody.png">
-            </ion-avatar>
-            <div item-left>
-              <div style="position:absolute;top:5px;right:16px;">
-                <ion-icon name="timer" color="primary"></ion-icon>
-              </div>
-              <div style="position:absolute;bottom:0;left:auto;">
-                <span style="font-size: large; font-style: oblique;color:grey;">1h</span><ion-note>24m</ion-note>
-              </div>
-            </div>
-          </ion-item>
-          <ion-item>
-            <div color="primary"  style=" font-weight: bold; margin-bottom: 5px">John Kenny</div>
+            <ion-col >
+              <ion-row>
+                <ion-col>
+                  <ion-item no-padding style="margin:0px">
+                    <ion-avatar no-margin>
+                      <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
+                    </ion-avatar>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-col>
 
-            <div>
+            <ion-col >
+            <span style="position:absolute;bottom:0;">
+            <span style="font-size: large; font-style: oblique;color:grey;">1h</span><ion-note>24m</ion-note></span>
+              <ion-item>
+                <ion-icon name="cog"></ion-icon>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+            <ion-col style="bottom:-10px">
+              <h4 class="name">John Smith</h4>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col style="bottom:5px">
               5 <span style="font-size: 10px ; top: 0px">YEARS</span>
-
+            </ion-col>
+            <ion-col style="bottom:5px">
               <ion-icon float-right color="grey" name="man"></ion-icon>
-            </div>
-          </ion-item>
-
+            </ion-col>
+          </ion-row>
         </ion-card>
       </ion-col>
+
     </ion-row>
-
   </ion-grid>
 
-
-<!-- //////////////////////////////-->
-  <ion-grid>
-<ion-row>
-  <ion-col col-6>
-  <ion-card>
-    <ion-row class="header">
-
-      <ion-col col-9 col-sm-10 col-md-6 col-lg-8 col-xl-9>
-        <ion-row>
-          <ion-col col-4>
-          <ion-item no-padding style="margin:0px">
-          <ion-avatar no-margin>
-            <img src="../../assets/avatar-ts-woody.png">
-          </ion-avatar>
-          </ion-item>
-          </ion-col>
-          <ion-col col-8>
-          <span style="position:absolute;bottom:0;">
-            <span style="font-size: large; font-style: oblique;color:grey;">1h</span><ion-note>24m</ion-note></span>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-      <ion-col col-3 col-sm-2 col-md-6 col-lg-4 col-xl-3>
-        <ion-item>
-          <ion-icon name="cog"></ion-icon>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <h4 class="name">John Smith</h4>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        5 <span style="font-size: 10px ; top: 0px">YEARS</span>
-      </ion-col>
-      <ion-col>
-        <ion-icon float-right color="grey" name="man"></ion-icon>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-  </ion-col>
-</ion-row>
-    </ion-grid>
 </ion-content>
