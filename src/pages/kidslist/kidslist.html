@@ -1,8 +1,22 @@
 <ion-header xmlns:font-size="http://www.w3.org/1999/xhtml" xmlns:top="http://www.w3.org/1999/xhtml"
             xmlns:top="http://www.w3.org/1999/xhtml">
 
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar hideBackButton>
+
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon color="primary" name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon color="primary" name="list"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon color="primary" name="grid"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -11,9 +25,17 @@
   <ion-input type="text" placeholder="Search Names" text-center name="title"></ion-input>
 
   <!-- //////////////////////////////-->
-  <ion-grid no-padding>
+  <ion-grid no-padding padding-top>
+    <ion-row>
+      <ion-col>
+    <ion-note>
+      <ion-icon name="sync" style="position: static; vertical-align: middle; font-size: x-large"></ion-icon>
+      <span style="padding-left: 5px"> Synced 5 mins ago</span></ion-note>
+      </ion-col>
+    </ion-row>
+
     <ion-row  style="margin-left: -1rem!important;margin-right: -1rem;" responsive-sm>
-      <ion-col col-6 col-lg-2 col-md-4>
+      <ion-col col-6 col-lg-2 col-md-4 *ngFor="let names of childName" (click)="goToProfile(names.name)">
         <ion-card>
           <ion-row responsive-sm class="header">
             <ion-col col-10 col-md-10 col-sm-8 col-lg-8>
@@ -30,14 +52,14 @@
 
             </ion-col>
             <ion-col>
-               <ion-icon style="top: 1.4rem" name="cog"></ion-icon>
+               <ion-icon style="top: 1.4rem; color: #0D9C80;" name="timer"></ion-icon>
             </ion-col>
 
           </ion-row>
 
           <ion-row style="padding-left: 5px!important" responsive-sm>
             <ion-col col-12 style="top:0px">
-              <h4 class="name">John Smith</h4>
+              <h4 class="name">{{names.name}}</h4>
             </ion-col>
 
             <ion-col style="top:-10px">
@@ -51,9 +73,12 @@
         </ion-card>
       </ion-col>
 
-
-
     </ion-row>
   </ion-grid>
 
+  <ion-fab  right bottom>
+    <button ion-fab mini>+</button>
+  </ion-fab>
+
 </ion-content>
+

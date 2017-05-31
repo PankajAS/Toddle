@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { KidslistPage } from '../pages/kidslist/kidslist';
+import {ProfilePage} from "../pages/profile/profile";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { KidslistPage } from '../pages/kidslist/kidslist';
     MyApp,
     HomePage,
     LoginPage,
-    KidslistPage
+    KidslistPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { KidslistPage } from '../pages/kidslist/kidslist';
     MyApp,
     HomePage,
     LoginPage,
-    KidslistPage
+    KidslistPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,

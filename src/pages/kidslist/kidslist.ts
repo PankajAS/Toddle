@@ -1,20 +1,23 @@
-import { Component } from '@angular/core';
-import {NavController, NavParams } from 'ionic-angular';
+import {Component, OnInit} from '@angular/core';
 
-/**
- * Generated class for the KidslistPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import childName from '../../data/childInfo';
+import {NavController} from "ionic-angular";
+import {ProfilePage} from "../profile/profile";
+
 
 @Component({
   selector: 'page-kidslist',
   templateUrl: 'kidslist.html',
 })
-export class KidslistPage {
+export class KidslistPage implements OnInit{
+  childName:{name:string,time:string, years:string, gender:string, avatar:string, icon:string}[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl:NavController){}
+  ngOnInit(): void {
+    this.childName =childName;
+  }
 
+  goToProfile(name:string){
+    this.navCtrl.push(ProfilePage, name);
   }
 }
