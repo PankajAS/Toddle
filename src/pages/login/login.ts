@@ -13,4 +13,8 @@ KidslistPage1 = KidslistPage;
 
   }
 
+  goToHome(){
+    this.navCtrl.setRoot(KidslistPage);
+  }
+
 }
