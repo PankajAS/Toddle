@@ -1,11 +1,11 @@
 <ion-header no-border xmlns:font-size="http://www.w3.org/1999/xhtml" xmlns:top="http://www.w3.org/1999/xhtml"
             xmlns:top="http://www.w3.org/1999/xhtml">
 
-  <ion-navbar hideBackButton primary>
+  <ion-navbar hideBackButton>
     <button ion-button menuToggle>
       <ion-icon color="primary" name="menu"></ion-icon>
     </button>
-      <ion-title text-center><p primary>Home</p></ion-title>
+      <ion-title text-center > <p class="primaryColor">Home</p></ion-title>
     <ion-buttons end>
       <button ion-button padding-left icon-only>
         <ion-icon color="primary" name="list"></ion-icon>
@@ -15,10 +15,14 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-  <ion-input type="text" placeholder="Search Names" text-center name="title"></ion-input>
+  <ion-toolbar padding>
+
+  <ion-input primary type="text" placeholder="Search Names" text-center name="title"></ion-input>
+
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding style="background-color: #FCFCFC">
 
   <!-- //////////////////////////////-->
   <ion-grid no-padding padding-top>

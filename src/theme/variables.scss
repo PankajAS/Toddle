@@ -29,6 +29,13 @@ $font-path: "../assets/fonts";
   color:grey;
 }
 
+.md,
+.wp {
+  .back-button {
+    color: #0D9C80 !important;//what ever the color you like
+  }
+}
+
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
