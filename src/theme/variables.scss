@@ -24,17 +24,31 @@ $font-path: "../assets/fonts";
 .primaryColor {
   color:#0D9C80 !important;
 }
+
 .greyColor
 {
   color:grey;
 }
 
+//css to change color of back button
 .md,
 .wp {
   .back-button {
     color: #0D9C80 !important;//what ever the color you like
   }
 }
+
+//Center the nav bar title on Android
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
 
 // Named Color Variables
 // --------------------------------------------------
