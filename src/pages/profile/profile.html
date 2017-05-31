@@ -4,13 +4,14 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+
+
 <ion-header no-border xmlns:color="http://www.w3.org/1999/xhtml">
-
-  <ion-navbar primary >
-
-    <ion-title ><p text-center class="primaryColor">PROFILE</p></ion-title>
+  <ion-navbar>
+    <!-- here z-index:-1 to resolve back button not working after making title in center as its hiding behind the title -->
+    <ion-title style="z-index: -1" align-title="center"><p text-center class="primaryColor">PROFILE</p></ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
