@@ -1,0 +1,107 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header xmlns:color="http://www.w3.org/1999/xhtml">
+
+  <ion-navbar>
+    <ion-title text-center>PROFILE</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item no-lines>
+    <ion-avatar item-left>
+      <img style="width: 100% !important;
+    height : 100% !important;
+    max-width: 85px !important;
+    max-height: 85px !important;"
+           [style.border]="'3px solid #0D9C80'"
+        src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
+    </ion-avatar>
+    <ion-label color="primary">{{name}}
+     <p style="font-size: 1.2rem;">Brussels, Belgium</p>
+
+      <p style="margin-top:10px;font-size: 1.2rem;color: #0D9C80;font-weight: bold; ">Birthday:</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-item no-lines text-wrap>
+    <p style="font-size: 1.3rem;">Each list can include a header at the top of the list:
+      Each list can include a header at the top of the list:
+    </p>
+
+  </ion-item>
+
+  <ion-item no-lines >
+    <p style="color: #0D9C80;">Allergic:</p>
+  </ion-item>
+
+  <ion-row style="text-align: center;">
+    <!-- Real floating action button, fixed. It will not scroll with the content -->
+    <ion-col>
+
+      <div class="circle">
+        <span style=" vertical-align:middle;text-align:center;">5 Yrs</span>
+      </div>
+    </ion-col>
+    <ion-col >
+      <div class="circle">22 kgm</div>
+    </ion-col>
+
+    <ion-col  >
+      <div class="circle">124 cm</div>
+    </ion-col>
+
+
+    <!-- Button shaped as a circle that just like a normal button scrolls with the content -->
+
+  </ion-row>
+
+  <ion-item text-center no-lines padding-top>
+    <p style="color:#0D9C80;font-weight: bold;">Emegrency Contacts</p>
+  </ion-item>
+
+  <ion-row >
+    <ion-col col-6>
+      <ion-card>
+        <ion-row responsive-sm class="header">
+          <ion-col>
+            <ion-item no-padding>
+              <ion-avatar style="margin:0px;">
+                <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
+              </ion-avatar>
+              <ion-icon item-right  name="man"></ion-icon>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding-left: 5px!important" responsive-sm>
+          <ion-col col-12 style="top:0px">
+            <h4 style="color: #0D9C80" class="name">{{name}}</h4>
+          </ion-col>
+
+          <ion-col style="top:-10px">
+            5 <span style="font-size: 0.8rem ; top: 0px">YEARS</span>
+          </ion-col>
+          <ion-col style="font-size:1.4rem;top:-10px">
+            <ion-icon float-right color="grey" name="man"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+
+
+    </ion-col>
+
+    <ion-col col-6>
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>
