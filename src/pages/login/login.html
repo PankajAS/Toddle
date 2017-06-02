@@ -1,79 +1,41 @@
 
+<ion-content class="loginContentBg">
 
+  <ion-grid no-padding>
 
+    <ion-row>
 
-<ion-content id="login" class="loginContentBg" text-center>
+      <ion-col col-12 text-center style="padding-bottom: 15%;">
+        <h1  class="color-white margin-top italic-text">Toddle</h1>
+        <p class="color-white italic-text">Welcome to Belgium's best daycare</p>
+      </ion-col>
 
-  <form>
-    <div class="row responsive-md">
-      <div class="col col-50 col-offset-25">
+      <ion-col  col-12>
+        <ion-item padding-right  class="item item-input transparent-control"  style="padding:0 10% 0 10%;">
+          <ion-label stacked  style="color:#ffffff; font-weight:bold;">USERNAME</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
 
-        <div class="header padding text-center">
-          <h1  class="color-white margin-top italic-text">Toddle</h1>
-          <p class="color-white italic-text">Welcome to Belgium's best daycare</p>
-        </div>
+      <ion-col col-12>
+        <ion-item padding-right class="item item-input transparent-control" style="padding:0 10% 0 10%;">
+          <ion-label stacked   style="color:#ffffff; font-weight:bold;">PASSWORD</ion-label>
+          <ion-input type="passowrd"></ion-input>
+        </ion-item>
+      </ion-col>
 
-        <div class="list" style="width:80%; margin: 0 auto; ">
-          <ion-item  class="item item-input transparent-control">
-            <ion-label stacked  style="color:#ffffff">USERNAME</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-          <ion-item class="item item-input transparent-control">
-            <ion-label stacked   style="color:#ffffff">PASSWORD</ion-label>
-            <ion-input type="passowrd"></ion-input>
-          </ion-item>
-        </div>
-        <div  >
-          <button style="width:60%;padding:30px;float: right;bottom:-10rem;"
-                  (click)="goToHome()"
-                  ion-button
-                  class="no-padding button-white">
-            SIGN IN
-          </button>
-        </div>
+      <ion-col col-12 float-right  style="float:right; padding:20% 0 0 0">
+        <button style="width:50%;padding:25px;"
+                (click)="goToHome()"
+                ion-button
+                class="no-padding button-white">
+          SIGN IN
+        </button>
+      </ion-col>
 
-      </div>
+    </ion-row>
 
-    </div>
-  </form>
-
-<!--<h1  class="color-white margin-top italic-text">Toddle</h1>
-<p class="color-white italic-text">Welcome to Belgium's best daycare</p>-->
-
-<!--<ion-row justify-content-center align-items-center style="width: 100%;margin-top: 30%">
-
-    <ion-col col-9 >
-      <ion-item class="transparent-control">
-        <ion-label stacked  style="color:#ffffff">USERNAME</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-    </ion-col>
-
- <ion-col col-9>
-    <ion-item class="transparent-control">
-      <ion-label stacked   style="color:#ffffff">PASSWORD</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-  </ion-col>
-</ion-row>-->
-
+  </ion-grid>
 
 </ion-content>
-<!--
-<ion-footer no-lines>
-  <ion-row style="padding:0px;">
-    <ion-col  style="float:right; padding:0px">
-      <button style="width:50%;padding:30px;"
-              (click)="goToHome()"
-              ion-button
-              class="no-padding button-white">
-        SIGN IN
-      </button>
-    </ion-col>
-  </ion-row>
-  <ion-row >
-    <ion-col  style="float:right;">
-      <button style="width:50%;padding:20px;text-transform: none;"  ion-button class="no-padding color-white italic-text" clear >Create an Account</button>
-    </ion-col>
-  </ion-row>
-</ion-footer>-->
+

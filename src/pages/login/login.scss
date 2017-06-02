@@ -1,89 +1,58 @@
 page-login {
 
-.loginContentBg{
-    background-image: url('../assets/icon/loginbg.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
+  .loginContentBg{
+      background-image: url('../assets/icon/loginbg.jpg');
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
 
-}
-.no-padding {
-  margin-right: 0px !important;
-  float:right;
-}
-.color-white{
-  color:#FFFFFF;
-}
-
-.transparent-control {
-  background-color: transparent;
-
-}
-
-.md ion-list > .item:last-child,
-.md ion-list > .item-wrapper:last-child .item,
-.wp ion-list > .item:last-child,
-.wp ion-list > .item-wrapper:last-child .item,
-.ios ion-list > .item:last-child,
-.ios ion-list > .item-wrapper:last-child .item {
-    border-bottom: none;
-}
-
-.button-white {
-  background: #ffffff;
-  color:green;
-  border-radius: 0px;
-  moz-border-radius: 0px;
-  webkit-border-radius: 0px;
-  transition: all 0.3s ease 0s;
-}
-.button-white:active {
-  background: red;
-}
-.center {
-  display: block;
-  vertical-align: middle;
-}
-ion-grid {
-    height: 58%;
-    justify-content: center;
-}
-.flex-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.margin-top{
-  margin-top: 100px !important;
-}
-.italic-text{
-  font-style: italic;
-}
-
-  #login {
-    background: #1c2627 url("../assets/icon/loginbg.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-    .scroll-content {
-      display: table !important;
-      width: 100% !important;
-      height: 70% !important;
-
-      form {
-        display: table-cell;
-        vertical-align: middle;
-
-        .button.button-light.active, .button.button-light.activated {
-          color: #fff;
-          opacity: inherit;
-        }
-      }
-    }
   }
 
+  .no-padding {
+    margin-right: 0px !important;
+    float:right;
+  }
 
+  .color-white{
+    color:#FFFFFF;
+  }
+
+  .transparent-control {
+    background-color: transparent;
+
+  }
+
+  //Vertically align center the grid content
+  ion-grid {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .button-white {
+    background: #ffffff;
+    color:#0D9C80;
+    border-radius: 0px;
+    moz-border-radius: 0px;
+    webkit-border-radius: 0px;
+    transition: all 0.3s ease 0s;
+    font-family: "GothamRounded";
+  }
+
+  .button-white:active {
+    background: #0D9C80;
+    color:#FFF;
+    font-family: "GothamRounded";
+  }
+  .button-white:hover {
+    background: #0D9C80;
+    color:#FFF;
+    font-family: "GothamRounded";
+  }
+
+  .italic-text{
+    font-style: italic;
+  }
 }
