@@ -11,13 +11,19 @@ import {ProfilePage} from "../profile/profile";
 })
 export class KidslistPage implements OnInit{
   childName:{name:string,time:string, years:string, gender:string, avatar:string, icon:string}[];
+  isGrid:boolean;
 
   constructor(private navCtrl:NavController){}
   ngOnInit(): void {
-    this.childName =childName;
+    this.childName = childName;
+    this.isGrid = true;
   }
 
   goToProfile(name:string){
     this.navCtrl.push(ProfilePage, name);
+  }
+
+  changeView(isGrid:boolean){
+    this.isGrid = isGrid;
   }
 }
