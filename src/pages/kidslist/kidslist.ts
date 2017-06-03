@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import childName from '../../data/childInfo';
 import {NavController} from "ionic-angular";
 import {ProfilePage} from "../profile/profile";
+import {DetailsviewPage} from "../detailsview/detailsview";
 
 
 @Component({
@@ -23,6 +24,9 @@ export class KidslistPage implements OnInit{
     this.navCtrl.push(ProfilePage, name);
   }
 
+  goDetailsView(name:string){
+    this.navCtrl.push(DetailsviewPage, name);
+  }
   changeView(isGrid:boolean){
     this.isGrid = isGrid;
   }
