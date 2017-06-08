@@ -21,15 +21,16 @@
 
 
 
-<ion-content padding>
+<ion-content padding-left padding-right padding-top>
 
-  <ion-item no-lines>
+  <ion-item no-lines padding margin-left>
     <ion-avatar item-left>
-      <img [style.border]="'3px solid #0D9C80'"
+      <img [style.border]="'2px solid #0D9C80'"
            src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
     </ion-avatar>
-    <ion-label color="primary">{{name}}
-      <p style="font-size: 1.2rem;">Brussels, Belgium</p>
+    <ion-label color="primary" style="font-weight: bold">{{name}}
+      <br>
+      <ion-note style="font-size: 1.2rem;">Brussels, Belgium</ion-note>
     </ion-label>
   </ion-item>
 
@@ -37,4 +38,72 @@
   <ion-fab  right bottom>
     <button ion-fab><ion-icon name="add"></ion-icon></button>
   </ion-fab>
+
+  <progress-bar [progress]="loadProgress"></progress-bar>
+
+  <div class="vertical_line" float-left></div>
+  <div float-left style="width:80%;margin-left: 3.9rem; margin-top:6rem;">
+    <div>
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon name="timer" color="primary"></ion-icon>
+      </ion-col>
+      <ion-col col-5 text-center>
+        <span class="primaryColor" style="font-weight: bold">8:00 AM</span>
+      </ion-col>
+
+      <ion-col col-5>
+        <ion-note style="font-weight: bold">CHECKED IN</ion-note>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div style="margin-top:4rem;">
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon name="timer" color="primary"></ion-icon>
+      </ion-col>
+      <ion-col col-5 text-center>
+        <span class="primaryColor" style="font-weight: bold">8:00 AM</span>
+      </ion-col>
+
+      <ion-col col-5>
+        <ion-note style="font-weight: bold">CHECKED IN</ion-note>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+  <div style="margin-top:4rem;">
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon name="timer" color="primary"></ion-icon>
+      </ion-col>
+      <ion-col col-5 text-center>
+        <span class="primaryColor" style="font-weight: bold">8:00 AM</span>
+      </ion-col>
+
+      <ion-col col-5>
+        <ion-note style="font-weight: bold">CHECKED IN</ion-note>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div style="margin-top:4rem;">
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon name="timer" color="primary"></ion-icon>
+      </ion-col>
+      <ion-col col-5 text-center>
+        <span class="primaryColor" style="font-weight: bold">8:00 AM</span>
+      </ion-col>
+
+      <ion-col col-5>
+        <ion-note style="font-weight: bold">CHECKED IN</ion-note>
+      </ion-col>
+    </ion-row>
+  </div>
+  </div>
+
+
 </ion-content>

@@ -8,6 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class DetailsviewPage {
   name:string;
+  loadProgress = 50;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

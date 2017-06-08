@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { KidslistPage } from '../pages/kidslist/kidslist';
 import {ProfilePage} from "../pages/profile/profile";
 import {DetailsviewPage} from "../pages/detailsview/detailsview";
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {DetailsviewPage} from "../pages/detailsview/detailsview";
     LoginPage,
     KidslistPage,
     ProfilePage,
-    DetailsviewPage
+    DetailsviewPage,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
