@@ -10,6 +10,8 @@ import { KidslistPage } from '../pages/kidslist/kidslist';
 import {ProfilePage} from "../pages/profile/profile";
 import {DetailsviewPage} from "../pages/detailsview/detailsview";
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
+import { ImageIconComponent } from '../components/image-icon/image-icon';
+import { TodosProvider } from '../providers/todos/todos';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     KidslistPage,
     ProfilePage,
     DetailsviewPage,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ImageIconComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    TodosProvider
   ]
 })
 export class AppModule {}

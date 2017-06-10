@@ -1,0 +1,338 @@
+swagger: '2.0'
+info:
+  title: KDV API
+  description: KDV-API
+  version: 1.2.0
+host: kdv-api-acceptatie.kdv1.tactics.be
+schemes:
+  - http
+basePath: /app_dev
+produces:
+  - application/json
+paths:
+  '/location/{locationId}/day/{day}/user/{userId}/token/{token}/children':
+    get:
+      summary: Children
+      description: Return a list of children registered to the locationId
+      parameters:
+        - name: locationId
+          in: path
+          description: Unique location id
+          required: true
+          type: integer
+          format: int34
+        - name: day
+          in: path
+          description: date
+          required: true
+          type: string
+        - name: userId
+          in: path
+          description: unique user id
+          required: true
+          type: integer
+          format: int34
+          - name: token
+          in: path
+          description: unique token
+          required: true
+          type: string
+      tags:
+        - Children
+      responses:
+        '200':
+          description: An array of children
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/child'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/error'
+  /attendance/registration:
+    post:
+      summary: Registration
+      description: Registration of attendances
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: >-
+            attendance objects that needs to be inserted or updated in the
+            database
+          required: true
+          schema:
+            $ref: '#/definitions/attendance'
+      tags:
+        - Attendance
+      responses:
+        '201':
+          description: The changed record id's
+        '400':
+          description: Invalid Json Format
+        '401':
+          description: invalid token
+  '/user/{userId}/token/{token}/locations':
+    get:
+      summary: List of locations
+      description: Returns a list of locations assosiated with this user
+      parameters:
+        - name: userId
+          in: path
+          description: unique user identifier
+          required: true
+          type: integer
+          format: int34
+        - name: token
+          in: path
+          description: valid token string
+          required: true
+          type: string
+          format: text
+      tags:
+        - Locations
+      responses:
+        '200':
+          description: An array of locations linked to the user
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/location'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/error'
+  '/{locationId}/{date}/{token}/{userId}/product_list':
+    get:
+      summary: List of products
+      description: Returns a list of products affiliated with the daycare
+      parameters:
+        - name: userId
+          in: path
+          description: unique user identifier
+          required: true
+          type: integer
+          format: int34
+        - name: locationId
+          in: path
+          description: unique location identifier
+          required: true
+          type: integer
+          format: int34
+        - name: token
+          in: path
+          description: valid token string
+          required: true
+          type: string
+          format: text
+        - name: date
+          in: path
+          description: date
+          required: true
+          type: string
+          format: text
+      tags:
+        - Products
+      responses:
+        '200':
+          description: An array of locations linked to the user
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/products'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/error'
+  /login:
+    post:
+      summary: Login
+      description: User has to login with e-mail and password
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: E-mail and password
+          required: true
+          schema:
+            $ref: '#/definitions/login'
+      tags:
+        - Login
+      responses:
+        '200':
+          description: token
+        '401':
+          description: login failed
+definitions:
+  error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
+  location:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      naam:
+        type: string
+  child:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      first_name:
+        type: string
+      surname:
+        type: string
+      gender:
+        type: string
+      date_of_birth:
+        type: string
+        format: date
+      person_id:
+        type: integer
+        description: guardian id
+      guardian_relationship:
+        type: string
+      parent:
+        type: array
+        items:
+          $ref: '#/definitions/parent'
+      info:
+        type: array
+        items:
+          $ref: '#/definitions/info'
+  parent:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      first_name:
+        type: string
+      surname:
+        type: string
+  info:
+    type: object
+    properties:
+      pediatrician_name:
+        type: string
+      pediatrician_phone:
+        type: number
+      vaccinations:
+        type: string
+      cannot_eat:
+        type: string
+      cannot_drink:
+        type: string
+  attendance:
+    type: object
+    properties:
+      token:
+        type: string
+      user_id:
+        type: integer
+        format: int32
+      children:
+        type: array
+        items:
+          $ref: '#/definitions/children'
+  children:
+    type: object
+    properties:
+      childnumber:
+        type: array
+        items:
+          $ref: '#/definitions/childnumber'
+  childnumber:
+    type: object
+    properties:
+      child_id:
+        type: integer
+        format: int32
+      date:
+        type: string
+      location_id:
+        type: integer
+        format: int32
+      registration_day_id:
+        type: integer
+        format: int32
+      registration_id:
+        type: integer
+        format: int32
+      hour_in1:
+        type: string
+      hour_out1:
+        type: string
+      hour_in2:
+        type: string
+      hour_out2:
+        type: string
+      hour_in3:
+        type: string
+      hour_out3:
+        type: string
+      hour_in4:
+        type: string
+      hour_out4:
+        type: string
+      remarks:
+        type: string
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/attendance_products'
+  products:
+    type: object
+    properties:
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/product'
+  product:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+  attendance_products:
+    type: object
+    properties:
+      product:
+        type: array
+        items:
+          $ref: '#/definitions/product_detail'
+  product_detail:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      aantal:
+        type: integer
+        format: int32
+  login:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string

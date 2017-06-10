@@ -7,7 +7,10 @@ page-kidslist {
     color:grey;
   }
 .icons{
-  position:absolute;top:5px;right:16px;
+  position:absolute;
+  top:5px;
+  right:16px;
+  color: #0D9C80;
 }
   .time{
     position:absolute;bottom:0;left:auto;
@@ -29,6 +32,38 @@ page-kidslist {
     vertical-align: text-bottom;
   }
 
+  .sync-icon{
+    position: static;
+    vertical-align: middle;
+    font-size: x-large;
+  }
 
+  .child-row{
+    margin-left: -1rem!important;
+    margin-right: -1rem;
+  }
+
+  .hours{
+    font-size: 1.5rem;
+    font-style: oblique;
+    color:grey;
+  }
+  .time{
+    position: absolute;
+    bottom:0px;
+    left: 4.6rem
+  }
+
+  .bottom-col{
+    font-size:1.4rem;
+    top:-10px;
+  }
+
+  .text-year{
+    font-size: 0.8rem ;
+    top: 0px;
+  }
 
 }
+
+

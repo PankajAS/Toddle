@@ -5,19 +5,19 @@
     <ion-title text-center > <p class="primaryColor">Home</p></ion-title>
     <ion-buttons left>
       <button ion-button menuToggle>
-        <ion-icon color="primary" name="menu"></ion-icon>
+        <image-icon imgUrl="url(../../assets/menu.png)"></image-icon>
       </button>
     </ion-buttons>
 
     <ion-buttons right >
       <button button ion-button icon-only clear (click)="changeView(false)">
-        <ion-icon color="primary" name="list"></ion-icon>
+        <image-icon imgUrl="url(../../assets/list.png)"></image-icon>
       </button>
     </ion-buttons>
 
     <ion-buttons right >
       <button button ion-button icon-only (click)="changeView(true)">
-        <ion-icon color="primary" name="grid"></ion-icon>
+          <image-icon imgUrl="url(../../assets/grid.png)"></image-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -29,19 +29,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding style="background-color: #f8f8f8;">
+<ion-content padding-left padding-right padding-bottom style="background-color: #f8f8f8;">
 
-  <ion-grid no-padding padding-top>
+
+  <!-- Grid view of kids list -->
+  <ion-grid no-padding >
     <ion-row>
-      <ion-col>
+      <ion-col style="vertical-align: middle" >
     <ion-note>
-      <ion-icon name="sync" style="position: static; vertical-align: middle; font-size: x-large"></ion-icon>
+      <image-icon float-left height="23px" width="23px" imgUrl="url(../../assets/sync.png)" color="#B8B8B8" (click)="createTodo()" ></image-icon>
       <span style="padding-left: 5px"> Synced 5 mins ago</span></ion-note>
       </ion-col>
     </ion-row>
-
-    <!-- Grid view of kids list -->
-    <ion-row *ngIf="isGrid" style="margin-left: -1rem!important;margin-right: -1rem;" responsive-sm>
+    <ion-row *ngIf="isGrid" class="child-row" responsive-sm>
       <ion-col col-6 col-lg-2 col-md-4 *ngFor="let names of childName" (click)="goToProfile(names.name)">
         <ion-card>
           <ion-row responsive-sm class="header">
@@ -50,18 +50,16 @@
                     <ion-avatar style="margin:0px;">
                       <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
 
-                      <span item-right style="position:absolute;bottom:0px;left: 4.6rem">
-            <span style="font-size: 1.5rem; font-style: oblique;color:grey;">1h </span><ion-note style="font-size: 1rem">24m</ion-note></span>
-
+                      <span item-right class="time">
+                       <span class="hours">1h </span>
+                        <ion-note style="font-size: 1rem">24m</ion-note>
+                      </span>
                     </ion-avatar>
-
                   </ion-item>
-
             </ion-col>
             <ion-col>
-               <ion-icon class="icons" style="top: 1.4rem; color: #0D9C80;" name="timer"></ion-icon>
+              <image-icon class="icons" style="top: 1.4rem;" height="20px" width="20px" imgUrl="url(../../assets/timer.png)"></image-icon>
             </ion-col>
-
           </ion-row>
 
           <ion-row style="padding-left: 5px!important" responsive-sm>
@@ -72,11 +70,10 @@
             <ion-col style="top:-10px">
               5 <span style="font-size: 0.8rem ; top: 0px">YEARS</span>
             </ion-col>
-            <ion-col style="font-size:1.4rem;top:-10px">
-              <ion-icon float-right color="grey" name="man"></ion-icon>
+            <ion-col class="bottom-col">
+              <image-icon float-right style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(../../assets/boy.png)"></image-icon>
             </ion-col>
           </ion-row>
-
         </ion-card>
       </ion-col>
     </ion-row>
@@ -92,23 +89,24 @@
               <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
 
             </ion-avatar>
-            <ion-icon name="man" item-left></ion-icon>
+            <image-icon item-left style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(../../assets/boy.png)"></image-icon>
             <h4 class="name">{{names.name}}</h4>
-            <p float-left>5 <span style="font-size: 0.8rem ; top: 0px">YEARS</span></p>
+            <p float-left>5 <span class="text-year">YEARS</span></p>
             <div  float-right style="padding-right: 30%;"><ion-note style="font-size: 1.5rem">1h 24m</ion-note> </div>
 
-            <ion-icon style="color: #0D9C80;" name="timer" item-right></ion-icon>
+            <image-icon item-right imgUrl="url(../../assets/timer.png)"></image-icon>
+
 
           </ion-item>
 
         </ion-list>
       </ion-col>
     </ion-row>
-
   </ion-grid>
-
   <ion-fab  right bottom>
-    <button ion-fab mini>+</button>
+    <button ion-fab mini>
+      <image-icon height="18px" width="18px" color="#FFFFFF" imgUrl="url(../../assets/filter.png)">
+      </image-icon></button>
   </ion-fab>
 
 </ion-content>
