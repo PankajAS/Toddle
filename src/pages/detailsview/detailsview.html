@@ -7,7 +7,7 @@
 <ion-header no-border xmlns:color="http://www.w3.org/1999/xhtml">
   <ion-navbar>
     <!-- here z-index:-1 to resolve back button not working after making title in center as its hiding behind the title -->
-    <ion-title style="z-index: -1" align-title="center"><p text-center class="primaryColor">SUMMARY</p></ion-title>
+    <ion-title style="z-index: -1" align-title="center"><p text-center class="primaryColor font-varelap">SUMMARY</p></ion-title>
 
     <ion-buttons end padding-right>
       <button ion-button icon-only>
@@ -27,9 +27,9 @@
       <img [style.border]="'2px solid #0D9C80'"
            src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
     </ion-avatar>
-    <ion-label color="primary" class="font-bold">{{name}}
+    <ion-label color="primary" class="font-varelap">{{name}}
       <br>
-      <ion-note style="font-size: 1.2rem;">Brussels, Belgium</ion-note>
+      <ion-note class="font-varelap" style="font-size: 1.2rem;">Brussels, Belgium</ion-note>
     </ion-label>
   </ion-item>
 
@@ -46,25 +46,10 @@
         <ion-icon name="timer" color="primary"></ion-icon>
       </ion-col>
       <ion-col col-5 text-center>
-        <span class="primaryColor font-bold">8:00 AM</span>
+        <span class="primaryColor font-varelap">8:00 AM</span>
       </ion-col>
-      <ion-col col-5>
-        <ion-note class="font-bold">CHECKED IN</ion-note>
-      </ion-col>
-    </ion-row>
-  </div>
-
-  <div style="margin-top:4rem;">
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon name="timer" color="primary"></ion-icon>
-      </ion-col>
-      <ion-col col-5 text-center>
-        <span class="primaryColor font-bold">9:00 AM</span>
-      </ion-col>
-
-      <ion-col col-5>
-        <ion-note class="font-bold">PLAYTIME</ion-note>
+      <ion-col col-6>
+        <ion-note class="font-varelap">CHECKED IN</ion-note>
       </ion-col>
     </ion-row>
   </div>
@@ -75,11 +60,11 @@
         <ion-icon name="timer" color="primary"></ion-icon>
       </ion-col>
       <ion-col col-5 text-center>
-        <span class="primaryColor font-bold">12:30 PM</span>
+        <span class="primaryColor font-varelap">9:00 AM</span>
       </ion-col>
 
-      <ion-col col-5>
-        <ion-note class="font-bold">LUNCH TIME</ion-note>
+      <ion-col col-6>
+        <ion-note class="font-varelap">PLAYTIME</ion-note>
       </ion-col>
     </ion-row>
   </div>
@@ -90,11 +75,26 @@
         <ion-icon name="timer" color="primary"></ion-icon>
       </ion-col>
       <ion-col col-5 text-center>
-        <span class="primaryColor font-bold">3:00 PM</span>
+        <span class="primaryColor font-varelap">12:30 PM</span>
       </ion-col>
 
-      <ion-col col-5>
-        <ion-note class="font-bold">CHECKED OUT</ion-note>
+      <ion-col col-6>
+        <ion-note class="font-varelap">LUNCH TIME</ion-note>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div style="margin-top:4rem;">
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon name="timer" color="primary"></ion-icon>
+      </ion-col>
+      <ion-col col-5 text-center>
+        <span class="primaryColor font-varelap">3:00 PM</span>
+      </ion-col>
+
+      <ion-col col-6>
+        <ion-note class="font-varelap">CHECKED OUT</ion-note>
       </ion-col>
     </ion-row>
   </div>

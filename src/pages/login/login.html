@@ -6,27 +6,27 @@
     <ion-row>
 
       <ion-col col-12 text-center style="padding-bottom: 15%;">
-        <h1  class="color-white margin-top italic-text">Toddle</h1>
-        <p class="color-white italic-text">Welcome to Belgium's best daycare</p>
+        <h1  class="color-white margin-top italic-text app-name ">Toddle</h1>
+        <p class="subtitle">Welcome to Belgium's best daycare</p>
       </ion-col>
 
       <ion-col  col-12>
         <ion-item padding-right  class="item item-input transparent-control"  style="padding:0 10% 0 10%;">
-          <ion-label stacked  style="color:#ffffff; font-weight:bold;">USERNAME</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label stacked  style="font-family:'Maven Pro';color:#ffffff; font-weight:bold;">USERNAME</ion-label>
+          <ion-input type="text" [(ngModel)]="username"></ion-input>
         </ion-item>
       </ion-col>
 
       <ion-col col-12>
         <ion-item padding-right class="item item-input transparent-control" style="padding:0 10% 0 10%;">
-          <ion-label stacked   style="color:#ffffff; font-weight:bold;">PASSWORD</ion-label>
-          <ion-input type="passowrd"></ion-input>
+          <ion-label stacked   style="font-family:'Maven Pro';color:#ffffff;font-weight:bold;">PASSWORD</ion-label>
+          <ion-input type="passowrd" [(ngModel)]="password"></ion-input>
         </ion-item>
       </ion-col>
 
       <ion-col col-12 float-right  style="float:right; padding:20% 0 0 0">
-        <button style="width:50%;padding:25px;"
-                (click)="goToHome()"
+        <button style="font-family:'Maven Pro'; font-weight:bold;width:50%;padding:25px;"
+                (click)="login(username,password)"
                 ion-button
                 class="no-padding button-white">
           SIGN IN

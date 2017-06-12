@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'johne kenny',
+    name: 'Johne Kenny',
     time:'',
     years:'',
     gender:'male',
@@ -8,7 +8,7 @@ export default [
     icon: 'brush'
   },
   {
-    name: 'johne kenny',
+    name: 'Johne Kenny',
     time:'',
     years:'',
     gender:'male',
@@ -16,7 +16,7 @@ export default [
     icon: 'brush'
   },
   {
-    name: 'johne kenny',
+    name: 'Johne Kenny',
     time:'',
     years:'',
     gender:'male',
@@ -24,7 +24,7 @@ export default [
     icon: 'brush'
   },
   {
-    name: 'johne kenny',
+    name: 'Johne Kenny',
     time:'',
     years:'',
     gender:'male',
@@ -32,7 +32,7 @@ export default [
     icon: 'brush'
   },
   {
-    name: 'johne kenny',
+    name: 'Johne Kenny',
     time:'',
     years:'',
     gender:'male',
@@ -40,7 +40,7 @@ export default [
     icon: 'brush'
   },
   {
-    name: 'johne kenny',
+    name: 'Johne Kenny',
     time:'',
     years:'',
     gender:'male',

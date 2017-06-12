@@ -2,7 +2,7 @@
             xmlns:top="http://www.w3.org/1999/xhtml">
 
   <ion-navbar>
-    <ion-title text-center > <p class="primaryColor">Home</p></ion-title>
+    <ion-title text-center > <p class="primaryColor font-varelap">HOME</p></ion-title>
     <ion-buttons left>
       <button ion-button menuToggle>
         <image-icon imgUrl="url(../../assets/menu.png)"></image-icon>
@@ -37,8 +37,8 @@
     <ion-row>
       <ion-col style="vertical-align: middle" >
     <ion-note>
-      <image-icon float-left height="23px" width="23px" imgUrl="url(../../assets/sync.png)" color="#B8B8B8" (click)="createTodo()" ></image-icon>
-      <span style="padding-left: 5px"> Synced 5 mins ago</span></ion-note>
+      <image-icon float-left height="23px" width="23px" imgUrl="url(../../assets/sync.png)" color="#a1a2a7" (click)="createTodo()" ></image-icon>
+      <span style="padding-left: 5px;font-family: 'Varela Round';font-size: 1.3rem"> Synced 5 mins ago</span></ion-note>
       </ion-col>
     </ion-row>
     <ion-row *ngIf="isGrid" class="child-row" responsive-sm>
@@ -51,14 +51,14 @@
                       <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
 
                       <span item-right class="time">
-                       <span class="hours">1h </span>
+                     <span class="hours">1h </span>
                         <ion-note style="font-size: 1rem">24m</ion-note>
                       </span>
                     </ion-avatar>
                   </ion-item>
             </ion-col>
             <ion-col>
-              <image-icon class="icons" style="top: 1.4rem;" height="20px" width="20px" imgUrl="url(../../assets/timer.png)"></image-icon>
+              <image-icon class="icons" style="top: 1.4rem;" color="#7FCAC2" height="20px" width="20px" imgUrl="url(../../assets/timer.png)"></image-icon>
             </ion-col>
           </ion-row>
 
@@ -68,7 +68,7 @@
             </ion-col>
 
             <ion-col style="top:-10px">
-              5 <span style="font-size: 0.8rem ; top: 0px">YEARS</span>
+            <span class="years"><span style="font-size: 1.4rem">5 </span><span style="font-size: 0.9rem ; top: 0px">YEARS</span></span>
             </ion-col>
             <ion-col class="bottom-col">
               <image-icon float-right style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(../../assets/boy.png)"></image-icon>
@@ -91,10 +91,10 @@
             </ion-avatar>
             <image-icon item-left style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(../../assets/boy.png)"></image-icon>
             <h4 class="name">{{names.name}}</h4>
-            <p float-left>5 <span class="text-year">YEARS</span></p>
+            <p float-left> <span class="years"><span style="font-size: 1.2rem">5 </span><span class="text-year">YEARS</span></span></p>
             <div  float-right style="padding-right: 30%;"><ion-note style="font-size: 1.5rem">1h 24m</ion-note> </div>
 
-            <image-icon item-right imgUrl="url(../../assets/timer.png)"></image-icon>
+            <image-icon item-right color="#7FCAC2" imgUrl="url(../../assets/timer.png)"></image-icon>
 
 
           </ion-item>

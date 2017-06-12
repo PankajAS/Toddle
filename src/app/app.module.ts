@@ -12,6 +12,8 @@ import {DetailsviewPage} from "../pages/detailsview/detailsview";
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { ImageIconComponent } from '../components/image-icon/image-icon';
 import { TodosProvider } from '../providers/todos/todos';
+import { LoginServiceProvider } from '../providers/login-service/login-service';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { TodosProvider } from '../providers/todos/todos';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -40,7 +43,8 @@ import { TodosProvider } from '../providers/todos/todos';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TodosProvider
+    TodosProvider,
+    LoginServiceProvider
   ]
 })
 export class AppModule {}

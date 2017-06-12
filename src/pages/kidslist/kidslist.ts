@@ -5,6 +5,7 @@ import {AlertController, NavController} from "ionic-angular";
 import {ProfilePage} from "../profile/profile";
 import {DetailsviewPage} from "../detailsview/detailsview";
 import {TodosProvider} from "../../providers/todos/todos";
+import { LoginServiceProvider } from '../../providers/login-service/login-service';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class KidslistPage implements OnInit{
   image:string;
   todos: any;
 
+
   constructor(private navCtrl:NavController, public todoService: TodosProvider,public alertCtrl: AlertController){}
 
   ionViewDidLoad(){
@@ -25,6 +27,10 @@ export class KidslistPage implements OnInit{
       this.todos = data;
       console.log(data);
     });
+
+//    this.login.login("api.test@tactics.be","passw").then((data)=>{
+//      console.log(data);
+//    });
 
   }
 

@@ -5,6 +5,7 @@ page-kidslist {
   ion-label{
     font-size: small;
     color:grey;
+
   }
 .icons{
   position:absolute;
@@ -13,19 +14,24 @@ page-kidslist {
   color: #0D9C80;
 }
   .time{
-    position:absolute;bottom:0;left:auto;
+    position:absolute;bottom:0;
+    left:auto;
   }
 
   .name{
-    color: #0D9C80; font-weight: bold; margin-bottom: 5px;
+    color: #0D9C80; font-weight: bold;margin-bottom: 5px;
   }
 
   .years{
-    font-size: 10px ; top: 0px;
+
+    font-size: 10px ;
+    top: 0px;
   }
 
   .span-time{
-    font-size: large; font-style: oblique;color:grey;
+   font-size: large;
+    font-style: oblique;
+    color:grey;
   }
 
   img.bottom{
@@ -44,9 +50,9 @@ page-kidslist {
   }
 
   .hours{
+
     font-size: 1.5rem;
     font-style: oblique;
-    color:grey;
   }
   .time{
     position: absolute;
@@ -60,7 +66,7 @@ page-kidslist {
   }
 
   .text-year{
-    font-size: 0.8rem ;
+    font-size: 0.9rem ;
     top: 0px;
   }
 
