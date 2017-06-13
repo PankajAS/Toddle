@@ -1,11 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 
 import childName from '../../data/childInfo';
-import {AlertController, LoadingController, NavController, NavParams} from "ionic-angular";
+import {AlertController, LoadingController, MenuController, NavController, NavParams} from "ionic-angular";
 import {ProfilePage} from "../profile/profile";
 import {DetailsviewPage} from "../detailsview/detailsview";
 import {TodosProvider} from "../../providers/todos/todos";
 import {KidsListServiceProvider} from "../../providers/kids-list-service/kids-list-service";
+import {Storage} from "@ionic/storage";
+import {LocationServiceProvider} from "../../providers/location-service/location-service";
+import {LoginPage} from "../login/login";
 
 
 @Component({
@@ -22,31 +25,42 @@ export class KidslistPage implements OnInit{
   myDate:any  = new Date().toLocaleDateString();
   today:any;
   birth:any;
-
+  user:any;
+  menuItems:any;
 
   constructor(private navCtrl:NavController,
               public navParams: NavParams,
               public kidList: KidsListServiceProvider,
               public todoService: TodosProvider,
               public alertCtrl: AlertController,
-              public loading: LoadingController){
+              public loading: LoadingController,
+              public storage: Storage,
+              public location: LocationServiceProvider,
+              private menu: MenuController){
+  }
+  ionViewDidEnter() {
+    this.menu.enable(true, 'menu1');
   }
 
   ionViewDidLoad(){
+    console.log("view")
     let loader = this.loading.create({
       content: "Loading..."
     });
     loader.present();
-
     //get params
     this.userDetails = {"userId":this.navParams.get("user_id"),"token":this.navParams.get("token")};
-    console.log(this.userDetails);
 
-    //get child list from KidsListServiceProvider using api
-    this.kidList.getKidsList(this.userDetails.userId, this.userDetails.token).then((data) =>{
-      this.childList = data;
-      console.log(this.childList[0]);
-      loader.dismissAll();
+    //get location from LocationServiceProvider service using api
+    this.location.getLocation(this.userDetails.userId,this.userDetails.token).then((data)=>{
+      this.menuItems = data;
+
+      //get child list from KidsListServiceProvider using api
+      this.kidList.getKidsList(this.userDetails.userId, this.userDetails.token, this.menuItems[0].id).then((data) =>{
+        this.childList = data;
+        console.log(this.childList[0]);
+        loader.dismissAll();
+      });
     });
 
 //    this.todoService.getTodos().then((data) => {
@@ -158,6 +172,25 @@ export class KidslistPage implements OnInit{
   //change list view to grid or list view
   changeView(isGrid:boolean){
     this.isGrid = isGrid;
+  }
+
+  //get kids list by selected location from menu
+  getKidListByLocation(location:string){
+    this.menu.close("menu1");
+    let loader = this.loading.create({
+      content: "Loading..."
+    });
+    loader.present();
+    this.kidList.getKidsList(this.userDetails.userId, this.userDetails.token, location).then((data) =>{
+      this.childList = data;
+      console.log(this.childList[0]);
+      loader.dismissAll();
+    });
+  }
+
+  //logout
+  logOut(){
+    this.navCtrl.setRoot(LoginPage);
   }
 }
 

@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { KidslistPage } from '../kidslist/kidslist';
 import {LoginServiceProvider} from "../../providers/login-service/login-service";
 import { LoadingController } from 'ionic-angular';
+import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'page-login',
@@ -12,9 +13,10 @@ export class LoginPage {
 KidslistPage1 = KidslistPage;
 username:any;
 password:any;
+userDetails:any;
 
-
-  constructor(public navCtrl: NavController, public loginReq: LoginServiceProvider, public loading: LoadingController) {
+  constructor(public navCtrl: NavController, public loginReq: LoginServiceProvider,
+              public loading: LoadingController, public storage:Storage) {
     this.username='api.test@tactics.be';
     this.password='passw';
   }
@@ -27,6 +29,9 @@ password:any;
       });
       loader.present();
       this.loginReq.login(this.username, this.password).then((data) => {
+        this.userDetails = data;
+        this.storage.set("userId",this.userDetails.user_id);
+        this.storage.set("token",this.userDetails.token);
         this.navCtrl.setRoot(KidslistPage,data);
         loader.dismissAll();
       }, function (error) {

@@ -19,6 +19,8 @@ import { FilterPipe } from '../pipes/filter/filter';
 import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {IonicStorageModule} from "@ionic/storage";
+import {LocationServiceProvider} from "../providers/location-service/location-service";
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
     HttpModule,
     Ng2FilterPipeModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -59,6 +62,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TodosProvider,
     LoginServiceProvider,
+    LocationServiceProvider,
     KidsListServiceProvider
   ]
 })

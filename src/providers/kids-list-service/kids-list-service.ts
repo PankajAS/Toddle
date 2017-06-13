@@ -15,11 +15,11 @@ export class KidsListServiceProvider {
 
   constructor(public http: Http) {}
 
-  getKidsList(userId:string, token:string){
+  getKidsList(userId:string, token:string, location:string){
     return new Promise(resolve => {
       var header = new Headers();
       header.append('Content-Type', 'application/json');
-      this.http.get(this.url + '5/day/2017-06-12/user/' + userId + '/token/' + token + '/children', {headers: header})
+      this.http.get(this.url + location +'/day/2017-06-12/user/' + userId + '/token/' + token + '/children', {headers: header})
         .map(res => res.json())
         .subscribe(data => {
             resolve(data);

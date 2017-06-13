@@ -1,8 +1,27 @@
+
+<ion-menu [content]="thecontent" id='menu1'>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let item of menuItems" (click)="getKidListByLocation(item.id)">
+        {{item.name}}
+      </button>
+      <button ion-item (click)="logOut()">
+        <ion-icon name="settings" item-left></ion-icon>
+        Logout
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
 <ion-header no-border xmlns:font-size="http://www.w3.org/1999/xhtml" xmlns:top="http://www.w3.org/1999/xhtml"
             xmlns:top="http://www.w3.org/1999/xhtml">
-
   <ion-navbar>
-    <ion-title text-center > <p class="primaryColor font-varelap">{{"HOME_HEADER" | translate}}</p></ion-title>
+    <ion-title text-center > <p class="primaryColor font-varelap">HOME</p></ion-title>
     <ion-buttons left>
       <button ion-button menuToggle>
         <image-icon imgUrl="url(../../assets/menu.png)"></image-icon>
@@ -24,13 +43,13 @@
 
   <ion-toolbar padding>
 
-  <ion-input primary type="text" placeholder="{{'SEARCH_PLACEHOLDER' | translate}}"  [value]="search"
+  <ion-input primary type="text" placeholder="Search Names"  [value]="search"
              (input)="search = $event.target.value" text-center name="title"></ion-input>
 
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding-left padding-right padding-bottom style="background-color: #f8f8f8;">
+<ion-content padding-left padding-right padding-bottom style="background-color: #f8f8f8;" #thecontent>
 
 
   <!-- Grid view of kids list -->
@@ -39,7 +58,7 @@
       <ion-col style="vertical-align: middle">
     <ion-note>
       <image-icon float-left height="23px" width="23px" imgUrl="url(../../assets/sync.png)" color="lightgrey" (click)="createTodo()" ></image-icon>
-      <span style="padding-left: 5px;font-family:'Varela Round';font-size: 1.3rem"> {{"SYNCED_TEXT" | translate}}</span></ion-note>
+      <span style="padding-left: 5px;font-family:'Varela Round';font-size: 1.3rem"> Synced 5 mins ago</span></ion-note>
       </ion-col>
     </ion-row>
     <ion-row *ngIf="isGrid" class="child-row" responsive-sm>
@@ -67,7 +86,7 @@
             </ion-col>
 
             <ion-col style="top:-10px">
-            <span class="years"><span style="font-size: 1.3rem">{{calculateAge(names.child_date_of_birth)}} </span><span style="font-size: 0.9rem ; top: 0px">{{"YEARS" | translate}}</span></span>
+            <span class="years"><span style="font-size: 1.3rem">{{calculateAge(names.child_date_of_birth)}} </span><span style="font-size: 0.9rem ; top: 0px">YEARS</span></span>
             </ion-col>
             <ion-col class="bottom-col">
               <span *ngIf="names.child_gender == 'M'">
