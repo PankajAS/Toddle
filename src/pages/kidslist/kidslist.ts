@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import childName from '../../data/childInfo';
-import {AlertController, LoadingController, MenuController, NavController, NavParams} from "ionic-angular";
+import {AlertController, LoadingController, NavController, NavParams} from "ionic-angular";
 import {ProfilePage} from "../profile/profile";
 import {DetailsviewPage} from "../detailsview/detailsview";
 import {TodosProvider} from "../../providers/todos/todos";

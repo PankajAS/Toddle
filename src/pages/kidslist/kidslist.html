@@ -2,7 +2,7 @@
             xmlns:top="http://www.w3.org/1999/xhtml">
 
   <ion-navbar>
-    <ion-title text-center > <p class="primaryColor font-varelap">HOME</p></ion-title>
+    <ion-title text-center > <p class="primaryColor font-varelap">{{"HOME_HEADER" | translate}}</p></ion-title>
     <ion-buttons left>
       <button ion-button menuToggle>
         <image-icon imgUrl="url(../../assets/menu.png)"></image-icon>
@@ -24,7 +24,7 @@
 
   <ion-toolbar padding>
 
-  <ion-input primary type="text" placeholder="Search Names"  [value]="search"
+  <ion-input primary type="text" placeholder="{{'HOME_HEADER' | translate}}"  [value]="search"
              (input)="search = $event.target.value" text-center name="title"></ion-input>
 
   </ion-toolbar>
@@ -39,7 +39,7 @@
       <ion-col style="vertical-align: middle">
     <ion-note>
       <image-icon float-left height="23px" width="23px" imgUrl="url(../../assets/sync.png)" color="lightgrey" (click)="createTodo()" ></image-icon>
-      <span style="padding-left: 5px;font-family:'Varela Round';font-size: 1.3rem"> Synced 5 mins ago</span></ion-note>
+      <span style="padding-left: 5px;font-family:'Varela Round';font-size: 1.3rem"> {{"SYNCED_TEXT" | translate}}</span></ion-note>
       </ion-col>
     </ion-row>
     <ion-row *ngIf="isGrid" class="child-row" responsive-sm>
@@ -67,7 +67,7 @@
             </ion-col>
 
             <ion-col style="top:-10px">
-            <span class="years"><span style="font-size: 1.3rem">{{calculateAge(names.child_date_of_birth)}} </span><span style="font-size: 0.9rem ; top: 0px">YEARS</span></span>
+            <span class="years"><span style="font-size: 1.3rem">{{calculateAge(names.child_date_of_birth)}} </span><span style="font-size: 0.9rem ; top: 0px">{{"YEARS" | translate}}</span></span>
             </ion-col>
             <ion-col class="bottom-col">
               <span *ngIf="names.child_gender == 'M'">
