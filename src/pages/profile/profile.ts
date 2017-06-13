@@ -13,14 +13,14 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-  name:string;
+  name:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.name = this.navParams.data;
   }
 
   ionViewDidLoad() {
-    this.name = this.navParams.data;
-    console.log('ionViewDidLoad ProfilePage');
+
   }
 
 }

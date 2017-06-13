@@ -17,12 +17,12 @@ export class FilterPipe implements PipeTransform {
   transform(items: any[], args:string) {
     if (!items)
       return items;
-
-    if(args === undefined)
+   if(args === undefined)
       return items;
 
-    this.name = args.split(" ");
-    return items.filter(item => item.child_first_name.toLowerCase().indexOf(this.name[0])!= -1
-    || item.child_last_name.toLowerCase().indexOf(this.name[1])!= -1);
+  //  this.name = args.split(" ");
+ //   return items.filter(item => item.child_first_name.toLowerCase().indexOf(this.name[0])!= -1
+ //   || item.child_last_name.toLowerCase().indexOf(this.name[1])!= -1);
+    return items.filter(item => item.child_full_name.toLowerCase().indexOf(args)!= -1)
   }
 }

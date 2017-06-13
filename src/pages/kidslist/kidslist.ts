@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import childName from '../../data/childInfo';
-import {AlertController, NavController, NavParams} from "ionic-angular";
+import {AlertController, LoadingController, MenuController, NavController, NavParams} from "ionic-angular";
 import {ProfilePage} from "../profile/profile";
 import {DetailsviewPage} from "../detailsview/detailsview";
 import {TodosProvider} from "../../providers/todos/todos";
@@ -17,31 +17,46 @@ export class KidslistPage implements OnInit{
   childList:any;
   isGrid:boolean;
   image:string;
-  todos: any;
+//  todos: any;
   userDetails:any;
+  myDate:any  = new Date().toLocaleDateString();
+  today:any;
+  birth:any;
 
 
-  constructor(private navCtrl:NavController, public navParams: NavParams, public kidList: KidsListServiceProvider, public todoService: TodosProvider,public alertCtrl: AlertController){}
+  constructor(private navCtrl:NavController,
+              public navParams: NavParams,
+              public kidList: KidsListServiceProvider,
+              public todoService: TodosProvider,
+              public alertCtrl: AlertController,
+              public loading: LoadingController){
+  }
 
   ionViewDidLoad(){
+    let loader = this.loading.create({
+      content: "Loading..."
+    });
+    loader.present();
+
+    //get params
     this.userDetails = {"userId":this.navParams.get("user_id"),"token":this.navParams.get("token")};
     console.log(this.userDetails);
 
+    //get child list from KidsListServiceProvider using api
     this.kidList.getKidsList(this.userDetails.userId, this.userDetails.token).then((data) =>{
       this.childList = data;
       console.log(this.childList[0]);
+      loader.dismissAll();
     });
 
-
-    this.todoService.getTodos().then((data) => {
-      this.todos = data;
-      console.log(data);
-    });
+//    this.todoService.getTodos().then((data) => {
+//      this.todos = data;
+//      console.log(data);
+//    });
 
 //    this.login.login("api.test@tactics.be","passw").then((data)=>{
 //      console.log(data);
 //    });
-
   }
 
   ngOnInit(): void {
@@ -51,7 +66,6 @@ export class KidslistPage implements OnInit{
   }
 
   createTodo(){
-
     let prompt = this.alertCtrl.create({
       title: 'Add',
       message: 'What do you need to do?',
@@ -110,32 +124,38 @@ export class KidslistPage implements OnInit{
         }
       ]
     });
-
     prompt.present();
   }
-
 
   deleteTodo(todo){
     this.todoService.deleteTodo(todo);
   }
 
-  today
-  calculateAge(date:string){
-    var date1 = date.split(" ");
-    var dateParts = date1[0].split("-");
-    this.today = new Date().toISOString();
-    var year = this.today.getFullYear;
-    return 2017 -parseInt(dateParts[0]);
 
+  //calculating child age from birth date
+  calculateAge(date:string){
+    this.today = new Date(this.myDate);
+    this.birth = new Date(date);
+    var ms = this.today.getTime()-this.birth.getTime();
+    var second = ms/1000;
+    var minutes = second/60;
+    var hours = minutes/60;
+    var days = hours/24;
+    var years = days/365;
+    return Math.round(years);
   }
 
-  goToProfile(name:string){
+  //navigation to child profile page
+  goToProfile(name:{}){
     this.navCtrl.push(ProfilePage, name);
   }
 
+  //navigation to child info page
   goDetailsView(name:string){
     this.navCtrl.push(DetailsviewPage, name);
   }
+
+  //change list view to grid or list view
   changeView(isGrid:boolean){
     this.isGrid = isGrid;
   }

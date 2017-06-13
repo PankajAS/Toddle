@@ -7,15 +7,15 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detailsview.html',
 })
 export class DetailsviewPage {
-  name:string;
+  name:any;
   loadProgress = 50;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.name = this.navParams.data;
   }
 
   ionViewDidLoad() {
-    this.name = this.navParams.data;
-    console.log('ionViewDidLoad ProfilePage');
+
   }
 
 }
