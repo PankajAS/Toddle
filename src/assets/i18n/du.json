@@ -1,31 +1,26 @@
 {
-  //Login Page
   "APP_TITLE": "Toddle",
   "APP_SUB_TITLE": "Welcome to Belgium's best daycare",
   "USERNAME": "USERNAME",
   "PASSWORD": "PASSWORD",
   "SIGN_IN": "SIGN IN",
 
-  //KidsList page
   "HOME_HEADER":"HOME",
   "SEARCH_PLACEHOLDER": "Search Names",
   "SYNCED_TEXT":"Synced 5 mins ago",
   "YEARS": "YEARS",
 
-  //Profile page
   "PROFILE_HEADER":"PROFILE",
   "BIRTHDAY": "Birthday",
   "ALLERGIC_TO":"Allergic To",
   "EMERGENCY_CONTACTS": "Emegrency Contacts",
 
-  //Summary page
   "SUMMARY_HEADER":"SUMMARY",
   "CHECKED_IN":"CHECKED IN",
   "PLAYTIME":"PLAYTIME",
   "LUNCH_TIME":"LUNCH TIME",
   "CHECKED_OUT":"CHECKED OUT",
 
-  //Filters popup
   "AGES_BETWEEN": "AGES BETWEEN",
   "BOYS":"boys",
   "GIRLS":"girls",
@@ -38,6 +33,5 @@
   "SAVE":"SAVE",
   "CANCEL":"CANCEL",
 
-  //Left Menu
-   "LOG_OUT":"Log Out"
+  "LOG_OUT":"Log Out"
 }

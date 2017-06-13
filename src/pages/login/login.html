@@ -6,20 +6,20 @@
     <ion-row>
 
       <ion-col col-12 text-center style="padding-bottom: 15%;">
-        <h1  class="color-white margin-top italic-text app-name ">Toddle</h1>
-        <p class="subtitle">Welcome to Belgium's best daycare</p>
+        <h1  class="color-white margin-top italic-text app-name ">{{ "APP_TITLE" | translate }}</h1>
+        <p class="subtitle">{{ "APP_SUB_TITLE" | translate }}</p>
       </ion-col>
 
       <ion-col  col-12>
         <ion-item padding-right  class="item item-input transparent-control"  style="padding:0 10% 0 10%;">
-          <ion-label stacked  style="font-family:'Maven Pro';color:#ffffff; font-weight:bold;">USERNAME</ion-label>
+          <ion-label stacked  style="font-family:'Maven Pro';color:#ffffff; font-weight:bold;">{{ "USERNAME" | translate }}</ion-label>
           <ion-input type="text" [(ngModel)]="username"></ion-input>
         </ion-item>
       </ion-col>
 
       <ion-col col-12>
         <ion-item padding-right class="item item-input transparent-control" style="padding:0 10% 0 10%;">
-          <ion-label stacked   style="font-family:'Maven Pro';color:#ffffff;font-weight:bold;">PASSWORD</ion-label>
+          <ion-label stacked   style="font-family:'Maven Pro';color:#ffffff;font-weight:bold;">{{ "PASSWORD" | translate }}</ion-label>
           <ion-input type="password" [(ngModel)]="password" ></ion-input>
         </ion-item>
       </ion-col>
@@ -29,7 +29,7 @@
                 (click)="login(username,password)"
                 ion-button
                 class="no-padding button-white">
-          SIGN IN
+          {{ "SIGN_IN" | translate }}
         </button>
       </ion-col>
 

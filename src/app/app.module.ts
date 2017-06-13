@@ -13,10 +13,12 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { ImageIconComponent } from '../components/image-icon/image-icon';
 import { TodosProvider } from '../providers/todos/todos';
 import { LoginServiceProvider } from '../providers/login-service/login-service';
-import { HttpModule } from '@angular/http';
+import {Http, HttpModule} from '@angular/http';
 import { KidsListServiceProvider } from '../providers/kids-list-service/kids-list-service';
 import { FilterPipe } from '../pipes/filter/filter';
 import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 
 @NgModule({
@@ -34,7 +36,14 @@ import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
     BrowserModule,
     HttpModule,
     Ng2FilterPipeModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -54,3 +63,7 @@ import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
   ]
 })
 export class AppModule {}
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
