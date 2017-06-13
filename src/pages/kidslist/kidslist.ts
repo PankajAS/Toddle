@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 
 import childName from '../../data/childInfo';
-import {AlertController, LoadingController, MenuController, NavController, NavParams} from "ionic-angular";
+import {
+  AlertController, LoadingController, MenuController, NavController, NavParams,
+  PopoverController
+} from "ionic-angular";
 import {ProfilePage} from "../profile/profile";
 import {DetailsviewPage} from "../detailsview/detailsview";
 import {TodosProvider} from "../../providers/todos/todos";
@@ -9,6 +12,7 @@ import {KidsListServiceProvider} from "../../providers/kids-list-service/kids-li
 import {Storage} from "@ionic/storage";
 import {LocationServiceProvider} from "../../providers/location-service/location-service";
 import {LoginPage} from "../login/login";
+import {PopoverContentPage} from "../popover/popover";
 
 
 @Component({
@@ -36,8 +40,17 @@ export class KidslistPage implements OnInit{
               public loading: LoadingController,
               public storage: Storage,
               public location: LocationServiceProvider,
-              private menu: MenuController){
+              private menu: MenuController,
+              public popoverCtrl: PopoverController){
   }
+
+  openPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverContentPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
+
   ionViewDidEnter() {
     this.menu.enable(true, 'menu1');
   }

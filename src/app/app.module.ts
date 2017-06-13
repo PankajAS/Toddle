@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { KidslistPage } from '../pages/kidslist/kidslist';
 import {ProfilePage} from "../pages/profile/profile";
 import {DetailsviewPage} from "../pages/detailsview/detailsview";
+import {PopoverContentPage} from "../pages/popover/popover";
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { ImageIconComponent } from '../components/image-icon/image-icon';
 import { TodosProvider } from '../providers/todos/todos';
@@ -30,6 +31,7 @@ import {LocationServiceProvider} from "../providers/location-service/location-se
     KidslistPage,
     ProfilePage,
     DetailsviewPage,
+    PopoverContentPage,
     ProgressBarComponent,
     ImageIconComponent,
     FilterPipe
@@ -54,7 +56,8 @@ import {LocationServiceProvider} from "../providers/location-service/location-se
     LoginPage,
     KidslistPage,
     ProfilePage,
-    DetailsviewPage
+    DetailsviewPage,
+    PopoverContentPage
   ],
   providers: [
     StatusBar,
