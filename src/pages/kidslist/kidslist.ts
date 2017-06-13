@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 
 import childName from '../../data/childInfo';
-import {AlertController, NavController} from "ionic-angular";
+import {AlertController, NavController, NavParams} from "ionic-angular";
 import {ProfilePage} from "../profile/profile";
 import {DetailsviewPage} from "../detailsview/detailsview";
 import {TodosProvider} from "../../providers/todos/todos";
-import { LoginServiceProvider } from '../../providers/login-service/login-service';
+import {KidsListServiceProvider} from "../../providers/kids-list-service/kids-list-service";
 
 
 @Component({
@@ -14,14 +14,24 @@ import { LoginServiceProvider } from '../../providers/login-service/login-servic
 })
 export class KidslistPage implements OnInit{
   childName:{name:string,time:string, years:string, gender:string, avatar:string, icon:string}[];
+  childList:any;
   isGrid:boolean;
   image:string;
   todos: any;
+  userDetails:any;
 
 
-  constructor(private navCtrl:NavController, public todoService: TodosProvider,public alertCtrl: AlertController){}
+  constructor(private navCtrl:NavController, public navParams: NavParams, public kidList: KidsListServiceProvider, public todoService: TodosProvider,public alertCtrl: AlertController){}
 
   ionViewDidLoad(){
+    this.userDetails = {"userId":this.navParams.get("user_id"),"token":this.navParams.get("token")};
+    console.log(this.userDetails);
+
+    this.kidList.getKidsList(this.userDetails.userId, this.userDetails.token).then((data) =>{
+      this.childList = data;
+      console.log(this.childList[0]);
+    });
+
 
     this.todoService.getTodos().then((data) => {
       this.todos = data;
@@ -109,6 +119,15 @@ export class KidslistPage implements OnInit{
     this.todoService.deleteTodo(todo);
   }
 
+  today
+  calculateAge(date:string){
+    var date1 = date.split(" ");
+    var dateParts = date1[0].split("-");
+    this.today = new Date().toISOString();
+    var year = this.today.getFullYear;
+    return 2017 -parseInt(dateParts[0]);
+
+  }
 
   goToProfile(name:string){
     this.navCtrl.push(ProfilePage, name);
@@ -121,3 +140,4 @@ export class KidslistPage implements OnInit{
     this.isGrid = isGrid;
   }
 }
+

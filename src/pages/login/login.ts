@@ -15,8 +15,8 @@ password:any;
 
 
   constructor(public navCtrl: NavController, public loginReq: LoginServiceProvider, public loading: LoadingController) {
-    this.username='';
-    this.password='';
+    this.username='api.test@tactics.be';
+    this.password='passw';
   }
 
 
@@ -27,8 +27,7 @@ password:any;
       });
       loader.present();
       this.loginReq.login(this.username, this.password).then((data) => {
-        console.log("kids", data);
-        this.navCtrl.setRoot(KidslistPage);
+        this.navCtrl.setRoot(KidslistPage,data);
         loader.dismissAll();
       }, function (error) {
         console.log(error);

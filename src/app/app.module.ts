@@ -14,6 +14,9 @@ import { ImageIconComponent } from '../components/image-icon/image-icon';
 import { TodosProvider } from '../providers/todos/todos';
 import { LoginServiceProvider } from '../providers/login-service/login-service';
 import { HttpModule } from '@angular/http';
+import { KidsListServiceProvider } from '../providers/kids-list-service/kids-list-service';
+import { FilterPipe } from '../pipes/filter/filter';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 
 
 @NgModule({
@@ -24,11 +27,13 @@ import { HttpModule } from '@angular/http';
     ProfilePage,
     DetailsviewPage,
     ProgressBarComponent,
-    ImageIconComponent
+    ImageIconComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    Ng2FilterPipeModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -44,7 +49,8 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TodosProvider,
-    LoginServiceProvider
+    LoginServiceProvider,
+    KidsListServiceProvider
   ]
 })
 export class AppModule {}
