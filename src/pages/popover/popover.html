@@ -1,4 +1,4 @@
-<ion-content  padding class="page-popover-content" style="color: #ffffff; position: fixed!important;">
+<ion-content class="page-popover-content" style="color: #ffffff; position: fixed!important;">
 
   <ion-grid text-center>
 
@@ -13,23 +13,20 @@
           <ion-label range-left class="font-varelap">2</ion-label>
           <ion-label range-right class="font-varelap">5</ion-label>
         </ion-range>
-
       </ion-col>
-
 
       <ion-col col-12>
 
-
         <ion-row>
-          <ion-col >
-            {{ "BOYS" | translate }}
-            <div style="-webkit-mask-box-image:url(../../assets/boy.png);background-color:#FFFFFF; height:30px;width:30px; float: right;" >
-            </div>
+          <ion-col item-right class="vertical-align-content">
+              {{ "BOYS" | translate }}
+              <div style="-webkit-mask-box-image:url(../../assets/boy.png);background-color:#FFFFFF; height:30px;width:30px; float: right;" >
+              </div>
           </ion-col>
-          <ion-col>
+          <ion-col class="vertical-align-content">
             <div style="-webkit-mask-box-image:url(../../assets/girl.png);background-color:#FFFFFF; height:30px;width:30px;" >
             </div>
-            {{ "GIRLS" | translate }}
+           {{ "GIRLS" | translate }}
           </ion-col>
         </ion-row>
 
