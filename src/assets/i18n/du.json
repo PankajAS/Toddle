@@ -35,5 +35,6 @@
   "SAVE":"OPSLAAN",
   "CANCEL":"ANNULEER",
 
-   "LOG_OUT":"Afmelden"
+  "LOG_OUT":"Afmelden",
+  "LOCATIONS":"Locations"
 }

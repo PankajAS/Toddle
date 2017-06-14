@@ -14,6 +14,8 @@
   "BIRTHDAY": "Birthday",
   "ALLERGIC_TO":"Allergic To",
   "EMERGENCY_CONTACTS": "Emegrency Contacts",
+  "YRS": "Yrs",
+  "KGM": "Kg",
 
   "SUMMARY_HEADER":"SUMMARY",
   "CHECKED_IN":"CHECKED IN",
@@ -33,5 +35,6 @@
   "SAVE":"SAVE",
   "CANCEL":"CANCEL",
 
-   "LOG_OUT":"Log Out"
+  "LOG_OUT":"Log Out",
+  "LOCATIONS":"Locations"
 }
