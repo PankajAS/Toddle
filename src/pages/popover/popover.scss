@@ -1,7 +1,30 @@
 page-popover {
+  .page-popover-content {
+    background: #0D9C80!important;;
+  }
 
-  ion-popover-view.fit {
-    height: 50%!important;
+  .vertical-align-content
+  {
+    display: flex!important;
+    align-content: center!important;
+    align-items: center!important;
+  }
+
+  .button-white {
+    background: #ffffff;
+    color:#0D9C80;
+    font-family: "GothamRounded";
+  }
+
+  .button-white:active {
+    background: #0D9C80;
+    color:#FFF;
+    font-family: "GothamRounded";
+  }
+  .button-white:hover {
+    background: #0D9C80;
+    color:#FFF;
+    font-family: "GothamRounded";
   }
 
 }

@@ -2,7 +2,7 @@
 <ion-menu [content]="thecontent" id='menu1'>
   <ion-header>
     <ion-toolbar>
-      <ion-title>Locations</ion-title>
+      <ion-title><p class="primaryColor font-varelap">{{ "LOCATIONS" | translate }}</p></ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -11,7 +11,7 @@
         {{item.name}}
       </button>
       <button ion-item (click)="logOut()">
-        <ion-icon name="settings" item-left></ion-icon>
+        <ion-icon name="log-out" color="primary" item-left></ion-icon>
         Logout
       </button>
     </ion-list>

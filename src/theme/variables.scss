@@ -13,9 +13,8 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
 .popover-md .popover-content {
-  width: 480px!important;
+  width: 100%!important;
   height: 50%!important;;
- // border-radius: 15px 15px 0px 0px!important;
   border-top-right-radius: 20px!important;
   border-top-left-radius: 20px!important;
   color: #000;
@@ -27,6 +26,7 @@ $font-path: "../assets/fonts";
   left: 0px !important;
   opacity: 0.9!important;
 }
+
 
 .label {
   margin: 0;

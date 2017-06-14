@@ -1,3 +1,100 @@
-<ion-content style="bottom: 0px!important;">
+<ion-content  padding class="page-popover-content" style="color: #ffffff; position: fixed!important;">
 
+  <ion-grid text-center>
+
+    <ion-row  >
+      <ion-col col-12 text-center>
+        <ion-title margin-top><p class="font-varelap" style="color: #ffffff; font-size: 1rem;">{{ "AGES_BETWEEN" | translate }}</p></ion-title>
+      </ion-col>
+
+      <ion-col col-12 text-center>
+
+        <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure">
+          <ion-label range-left class="font-varelap">2</ion-label>
+          <ion-label range-right class="font-varelap">5</ion-label>
+        </ion-range>
+
+      </ion-col>
+
+
+      <ion-col col-12>
+
+
+        <ion-row>
+          <ion-col >
+            {{ "BOYS" | translate }}
+            <div style="-webkit-mask-box-image:url(../../assets/boy.png);background-color:#FFFFFF; height:30px;width:30px; float: right;" >
+            </div>
+          </ion-col>
+          <ion-col>
+            <div style="-webkit-mask-box-image:url(../../assets/girl.png);background-color:#FFFFFF; height:30px;width:30px;" >
+            </div>
+            {{ "GIRLS" | translate }}
+          </ion-col>
+        </ion-row>
+
+    <!--<ion-row   text-center>-->
+
+          <!--<ion-col  class="vertical-align-content" >-->
+            <!--{{ "BOYS" | translate }}-->
+            <!--<image-icon  height="30px" color="#FFFFFF" width="30px" imgUrl="url(../../assets/boy.png)"></image-icon>-->
+          <!--</ion-col>-->
+
+
+          <!--<ion-col class="vertical-align-content">-->
+            <!--<image-icon  height="30px" color="#FFFFFF" width="30px" imgUrl="url(../../assets/girl.png)"></image-icon>-->
+            <!--{{ "GIRLS" | translate }}-->
+          <!--</ion-col>-->
+    <!--</ion-row>-->
+
+      </ion-col>
+
+      <ion-col col-12 text-center >
+
+        <hr style="border-top: 1px solid #FFFFFF;">
+      </ion-col>
+
+      <ion-col col-12>
+
+        <ion-row text-center>
+          <ion-col>
+            <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "GROUPS" | translate }} </span>
+            <button small style="font-family:'Maven Pro'; font-size: 1rem;"
+                    ion-button round
+                    class="button-white">
+              <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "ALL_GROUPS" | translate }} </span>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button small style="font-family:'Maven Pro'; font-size: 1rem;"
+                    ion-button round
+                    class="button-white">
+              {{ "ALL" | translate }}
+            </button>
+            <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "PLANNED" | translate }} </span>
+          </ion-col>
+        </ion-row>
+
+      </ion-col>
+
+
+      <ion-col col-12 text-center>
+      <div>
+        <button small style="font-family:'Maven Pro'; font-size: 1rem;"
+                ion-button round
+                class="button-white">
+          {{ "ALL" | translate }}
+        </button>
+
+      </div>
+        <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "SCHEDULE" | translate }} </span>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-fab  right bottom>
+    <button ion-fab mini (click)="close()" color="light"><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
 </ion-content>
