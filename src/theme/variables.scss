@@ -12,6 +12,8 @@ $font-path: "../assets/fonts";
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
+//****** popover  override css *******
+//android specific css
 .popover-md .popover-content {
   width: 100%!important;
   height: 50%!important;;
@@ -26,7 +28,26 @@ $font-path: "../assets/fonts";
   left: 0px !important;
   opacity: 0.9!important;
 }
+// ios specific css
+.popover-ios .popover-content {
+  width: 100%!important;
+  height: 50%!important;;
+  border-top-right-radius: 20px!important;
+  border-top-left-radius: 20px!important;
+  color: #000;
+  background: #0D9C80!important;;
+  box-shadow: 0 3px 12px 2px rgba(0, 0, 0, 0.3);
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+  top:auto!important;
+  left: 0px !important;
+  opacity: 0.9!important;
+}
+.popover-ios .popover-arrow {
+  display: none!important;
+}
 
+//****** popover css *******
 
 .label {
   margin: 0;
