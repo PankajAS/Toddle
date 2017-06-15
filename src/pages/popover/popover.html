@@ -9,40 +9,26 @@
 
       <ion-col col-12 text-center>
 
-        <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure">
-          <ion-label range-left class="font-varelap">2</ion-label>
-          <ion-label range-right class="font-varelap">5</ion-label>
-        </ion-range>
       </ion-col>
 
       <ion-col col-12>
 
         <ion-row>
-          <ion-col item-right class="vertical-align-content">
-              {{ "BOYS" | translate }}
+          <ion-col>
+            <div style="float:right" class="vertical-align-content"> {{ "BOYS" | translate }}
+
               <div style="-webkit-mask-box-image:url(../../assets/boy.png);background-color:#FFFFFF; height:30px;width:30px; float: right;" >
+
               </div>
+            </div>
+
           </ion-col>
           <ion-col class="vertical-align-content">
             <div style="-webkit-mask-box-image:url(../../assets/girl.png);background-color:#FFFFFF; height:30px;width:30px;" >
             </div>
-           {{ "GIRLS" | translate }}
+            {{ "GIRLS" | translate }}
           </ion-col>
         </ion-row>
-
-    <!--<ion-row   text-center>-->
-
-          <!--<ion-col  class="vertical-align-content" >-->
-            <!--{{ "BOYS" | translate }}-->
-            <!--<image-icon  height="30px" color="#FFFFFF" width="30px" imgUrl="url(../../assets/boy.png)"></image-icon>-->
-          <!--</ion-col>-->
-
-
-          <!--<ion-col class="vertical-align-content">-->
-            <!--<image-icon  height="30px" color="#FFFFFF" width="30px" imgUrl="url(../../assets/girl.png)"></image-icon>-->
-            <!--{{ "GIRLS" | translate }}-->
-          <!--</ion-col>-->
-    <!--</ion-row>-->
 
       </ion-col>
 
@@ -76,14 +62,14 @@
 
 
       <ion-col col-12 text-center>
-      <div>
-        <button small style="font-family:'Maven Pro'; font-size: 1rem;"
-                ion-button round
-                class="button-white">
-          {{ "ALL" | translate }}
-        </button>
+        <div>
+          <button small style="font-family:'Maven Pro'; font-size: 1rem;"
+                  ion-button round
+                  class="button-white">
+            {{ "ALL" | translate }}
+          </button>
 
-      </div>
+        </div>
         <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "SCHEDULE" | translate }} </span>
       </ion-col>
 
@@ -92,6 +78,7 @@
   </ion-grid>
 
   <ion-fab  right bottom>
-    <button ion-fab mini (click)="close()" color="light"><ion-icon name="close"></ion-icon></button>
+    <button ion-fab mini (click)="close()" color="light"><ion-icon color="primary" name="close"></ion-icon></button>
   </ion-fab>
 </ion-content>
+
