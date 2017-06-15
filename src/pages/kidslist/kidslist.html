@@ -24,19 +24,19 @@
     <ion-title text-center > <p class="primaryColor font-varelap">{{ "HOME_HEADER" | translate }}</p></ion-title>
     <ion-buttons left>
       <button ion-button menuToggle>
-        <image-icon imgUrl="url(../../assets/menu.png)"></image-icon>
+        <image-icon imgUrl="url(assets/menu.png)"></image-icon>
       </button>
     </ion-buttons>
 
     <ion-buttons right >
       <button button ion-button icon-only clear (click)="changeView(false)">
-        <image-icon imgUrl="url(../../assets/list.png)"></image-icon>
+        <image-icon imgUrl="url(assets/list.png)"></image-icon>
       </button>
     </ion-buttons>
 
     <ion-buttons right >
       <button button ion-button icon-only (click)="changeView(true)">
-          <image-icon imgUrl="url(../../assets/grid.png)"></image-icon>
+          <image-icon imgUrl="url(assets/grid.png)"></image-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -57,7 +57,7 @@
     <ion-row>
       <ion-col style="vertical-align: middle">
     <ion-note>
-      <image-icon float-left height="23px" width="23px" imgUrl="url(../../assets/sync.png)" color="lightgrey" (click)="createTodo()" ></image-icon>
+      <image-icon float-left height="23px" width="23px" imgUrl="url(assets/sync.png)" color="lightgrey" (click)="createTodo()" ></image-icon>
       <span style="padding-left: 5px;font-family:'Varela Round';font-size: 1.3rem">{{ "SYNCED_TEXT" | translate }}</span></ion-note>
       </ion-col>
     </ion-row>
@@ -68,7 +68,8 @@
             <ion-col col-10 col-md-10 col-sm-8 col-lg-8>
                   <ion-item no-padding>
                     <ion-avatar style="margin:0px;">
-                      <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">                      <span item-right class="time">
+                      <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
+                      <span item-right class="time">
                      <span class="hours">1h </span>
                         <ion-note style="font-size: 1rem">24m</ion-note>
                       </span>
@@ -76,7 +77,7 @@
                   </ion-item>
             </ion-col>
             <ion-col>
-              <image-icon class="icons" style="top: 1.4rem;" color="#7FCAC2" height="20px" width="20px" imgUrl="url(../../assets/timer.png)"></image-icon>
+              <image-icon class="icons" style="top: 1.4rem;" color="#7FCAC2" height="20px" width="20px" imgUrl="url(assets/timer.png)"></image-icon>
             </ion-col>
           </ion-row>
 
@@ -90,10 +91,10 @@
             </ion-col>
             <ion-col class="bottom-col">
               <span *ngIf="names.child_gender == 'M'">
-              <image-icon float-right style="padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(../../assets/boy.png)"></image-icon>
+              <image-icon float-right style="padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(assets/boy.png)"></image-icon>
             </span>
               <span *ngIf="names.child_gender == 'V'">
-              <image-icon float-right style="padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(../../assets/girl.png)"></image-icon>
+              <image-icon float-right style="padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(assets/girl.png)"></image-icon>
             </span>
             </ion-col>
           </ion-row>
@@ -112,14 +113,14 @@
               <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
 
             </ion-avatar>
-            <image-icon item-left  *ngIf="names.child_gender == 'M'" style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(../../assets/boy.png)"></image-icon>
-            <image-icon item-left  *ngIf="names.child_gender == 'V'" style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(../../assets/girl.png)"></image-icon>
-            <image-icon item-left  *ngIf="names.child_gender == null" style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(../../assets/girl.png)"></image-icon>
+            <image-icon item-left  *ngIf="names.child_gender == 'M'" style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(assets/boy.png)"></image-icon>
+            <image-icon item-left  *ngIf="names.child_gender == 'V'" style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(assets/girl.png)"></image-icon>
+            <image-icon item-left  *ngIf="names.child_gender == null" style= "padding-right:1rem;" height="20px" color="#B8B8B8" width="20px" imgUrl="url(assets/girl.png)"></image-icon>
 
             <h4 class="name">{{ names.child_first_name+" "+names.child_last_name}}</h4>
             <p float-left> <span class="years"><span style="font-size: 1.2rem">{{calculateAge(names.child_date_of_birth)}} </span><span class="text-year">YEARS</span></span></p>
             <div  float-right style="padding-right: 30%;"><ion-note style="font-size: 1.5rem">1h 24m</ion-note> </div>
-            <image-icon item-right color="#7FCAC2" imgUrl="url(../../assets/timer.png)"></image-icon>
+            <image-icon item-right color="#7FCAC2" imgUrl="url(assets/timer.png)"></image-icon>
           </ion-item>
 
         </ion-list>
@@ -128,7 +129,7 @@
   </ion-grid>
   <ion-fab  right bottom>
     <button ion-fab mini>
-      <image-icon icon-only (click)="openPopover($event)" height="18px" width="18px" color="#FFFFFF" imgUrl="url(../../assets/filter.png)">
+      <image-icon icon-only (click)="openPopover($event)" height="18px" width="18px" color="#FFFFFF" imgUrl="url(assets/filter.png)">
       </image-icon></button>
   </ion-fab>
 

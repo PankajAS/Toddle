@@ -23,6 +23,7 @@ userDetails:any;
 
 
   login(){
+    console.log("test");
     if(this.username!='' && this.password!='') {
       let loader = this.loading.create({
         content: "Login..."
