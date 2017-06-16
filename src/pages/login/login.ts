@@ -23,7 +23,6 @@ userDetails:any;
 
 
   login(){
-    console.log("test");
     if(this.username!='' && this.password!='') {
       let loader = this.loading.create({
         content: "Login..."
@@ -33,6 +32,7 @@ userDetails:any;
         this.userDetails = data;
         this.storage.set("userId",this.userDetails.user_id);
         this.storage.set("token",this.userDetails.token);
+        console.log(data)
         this.navCtrl.setRoot(KidslistPage,data);
         loader.dismissAll();
       }, function (error) {

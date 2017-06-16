@@ -18,19 +18,13 @@
 
 
 
-@font-face {
-  font-family: 'segoe script';
-  font-style: normal;
-  font-weight: 400;
-  src: url('assets/fonts/segoe-script-593e2757271ba.ttf') format('ttf');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
+
 
 @font-face{
   font-family: 'GothamRounded';
   font-style: normal;
   font-weight: 400;
-  src: url('https://fonts.gstatic.com/s/lobster/v18/c28rH3kclCLEuIsGhOg7evY6323mHUZFJMgTvxaG2iE.woff2') format('ttf');
+  src: url('https://fonts.gstatic.com/s/lobster/v18/c28rH3kclCLEuIsGhOg7evY6323mHUZFJMgTvxaG2iE.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
@@ -92,13 +86,26 @@
 }
 
 
+@font-face {
+  font-family: 'segoe script';
+  src: url('../assets/fonts/segoe-script.ttf') format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Yellowtail';
+  src: url('../assets/fonts/yellowtail.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+
 .subtitle{
   font-family: "Maven Pro";
   color: rgb( 247, 248, 251 );
 }
 
 .app-name{
-font-family: 'segoe script';
+  font-family: 'segoe script';
   font-weight: bold;
   font-size: xx-large;
 }
