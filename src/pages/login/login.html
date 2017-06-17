@@ -23,6 +23,13 @@
         </ion-item>
       </ion-col>
 
+      <ion-col col-12>
+        <ion-item padding-right class="item item-input transparent-control" style="padding:0 10% 0 10%;">
+          <ion-label stacked   style="font-family:'Maven Pro';color:#ffffff;font-weight:bold;">{{ "Installation Key" | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="installation_key" ></ion-input>
+        </ion-item>
+      </ion-col>
+
       <ion-col col-12 float-right  style="float:right; padding:20% 0 0 0">
         <button style="font-family:'Maven Pro'; font-weight:bold;width:50%;padding:25px;"
                 (click)="login(username,password)"

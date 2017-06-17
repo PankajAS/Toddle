@@ -22,6 +22,8 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {IonicStorageModule} from "@ionic/storage";
 import {LocationServiceProvider} from "../providers/location-service/location-service";
+import { FiltersServiceProvider } from '../providers/filters-service/filters-service';
+import {PopupModelPage} from "../pages/popup-model/popup-model";
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import {LocationServiceProvider} from "../providers/location-service/location-se
     PopoverContentPage,
     ProgressBarComponent,
     ImageIconComponent,
-    FilterPipe
+    FilterPipe,
+    PopupModelPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import {LocationServiceProvider} from "../providers/location-service/location-se
     KidslistPage,
     ProfilePage,
     DetailsviewPage,
-    PopoverContentPage
+    PopoverContentPage,
+    PopupModelPage
   ],
   providers: [
     StatusBar,
@@ -66,7 +70,8 @@ import {LocationServiceProvider} from "../providers/location-service/location-se
     TodosProvider,
     LoginServiceProvider,
     LocationServiceProvider,
-    KidsListServiceProvider
+    KidsListServiceProvider,
+    FiltersServiceProvider
   ]
 })
 export class AppModule {}

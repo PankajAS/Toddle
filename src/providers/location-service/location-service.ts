@@ -11,17 +11,17 @@ import { Headers } from '@angular/http';
 */
 @Injectable()
 export class LocationServiceProvider {
-  url = 'http://kdv-api-acceptatie.kdv1.tactics.be/user/';
+  url = 'http://kdv-api-acceptatie.kdv1.tactics.be/';
 
 
   constructor(public http: Http) {
   }
 
-  getLocation(userId:string,token:string){
+  getLocation(userId:string,token:string,cityKey:string){
     return new Promise(resolve => {
       var header = new Headers();
       header.append('Content-Type', 'application/json');
-      this.http.get(this.url+userId + '/token/' + token + '/locations', {headers: header})
+      this.http.get(this.url+'city/'+ cityKey +'/'+'user/'+userId + '/token/' + token + '/locations', {headers: header})
         .map(res => res.json())
         .subscribe(data => {
             resolve(data);

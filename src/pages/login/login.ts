@@ -13,27 +13,31 @@ export class LoginPage {
 KidslistPage1 = KidslistPage;
 username:any;
 password:any;
-userDetails:any;
+installation_key:any;
+userDetails:{[k: string]: any}={};
+
 
   constructor(public navCtrl: NavController, public loginReq: LoginServiceProvider,
               public loading: LoadingController, public storage:Storage) {
     this.username='api.test@tactics.be';
     this.password='passw';
+    this.installation_key ='leuven_acc';
   }
 
-
   login(){
+
     if(this.username!='' && this.password!='') {
       let loader = this.loading.create({
         content: "Login..."
       });
       loader.present();
-      this.loginReq.login(this.username, this.password).then((data) => {
-        this.userDetails = data;
-        this.storage.set("userId",this.userDetails.user_id);
-        this.storage.set("token",this.userDetails.token);
-        console.log(data)
-        this.navCtrl.setRoot(KidslistPage,data);
+      this.loginReq.login(this.username, this.password, this.installation_key).then((data) => {
+        this.userDetails.data = data;
+        this.userDetails.installation_key = this.installation_key;
+       // this.storage.set("userId",this.userDetails.user_id);
+       // this.storage.set("token",this.userDetails.token);
+        //console.log( this.userDetails.installation_key)
+        this.navCtrl.setRoot(KidslistPage,this.userDetails);
         loader.dismissAll();
       }, function (error) {
         console.log(error);

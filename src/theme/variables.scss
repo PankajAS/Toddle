@@ -28,6 +28,16 @@ $font-path: "../assets/fonts";
   left: 0px !important;
   opacity: 0.9!important;
 }
+.range-md .range-bar {
+  top: 19px!important;
+  height: 6px!important;
+  background: #7DCABA!important;
+  border-radius: 10px!important;
+}
+
+.range-md .range-bar-active {
+  background: #f4f4f4!important;
+}
 // ios specific css
 .popover-ios .popover-content {
   width: 100%!important;
@@ -60,6 +70,10 @@ $font-path: "../assets/fonts";
 
 .primaryColor {
   color:#0D9C80 !important;
+}
+
+.item.item-md .checkbox-md {
+  margin: 0px 10px 0px 10px!important;
 }
 
 .greyColor

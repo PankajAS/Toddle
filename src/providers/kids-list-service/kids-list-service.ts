@@ -11,18 +11,19 @@ import { Headers } from '@angular/http';
 */
 @Injectable()
 export class KidsListServiceProvider {
-  url = 'http://kdv-api-acceptatie.kdv1.tactics.be/location/';
+  url = 'http://kdv-api-acceptatie.kdv1.tactics.be/';
 
   constructor(public http: Http) {}
 
-  getKidsList(userId:string, token:string, location:string){
+  getKidsList(userId:string, token:string, location:string, cityKey:string){
+
     return new Promise(resolve => {
       var header = new Headers();
       header.append('Content-Type', 'application/json');
-      this.http.get(this.url + location +'/day/2017-06-12/user/' + userId + '/token/' + token + '/children', {headers: header})
+      this.http.get(this.url +'city/'+cityKey +'/location/'+ location +'/day/2017-06-12/user/' + userId + '/token/' + token + '/children', {headers: header})
         .map(res => res.json())
-        .subscribe(data => {
-            resolve(data);
+        .subscribe(data =>{
+          resolve(data);
           },
           error => alert(error),
           () => console.log("Finished")

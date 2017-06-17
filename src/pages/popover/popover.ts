@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import {ViewController} from 'ionic-angular';
+import {Component, OnInit} from '@angular/core';
+import {ModalController, ViewController} from 'ionic-angular';
+import {FiltersServiceProvider} from "../../providers/filters-service/filters-service";
+import {PopupModelPage} from "../popup-model/popup-model";
 
 /**
  * Generated class for the PopoverPage page.
@@ -11,11 +13,30 @@ import {ViewController} from 'ionic-angular';
   selector: 'page-popover',
   templateUrl: 'popover.html',
 })
-export class PopoverContentPage {
+export class PopoverContentPage implements OnInit{
 
-  constructor(public viewCtrl: ViewController) {}
+  structure: any
+
+  constructor(public viewCtrl: ViewController, public filterservice:FiltersServiceProvider, public modalCtrl:ModalController) {
+
+  }
+  ngOnInit(): void {
+    this.structure = { lower: 0, upper: 6 };
+  }
+
+  changes(){
+
+    this.filterservice.setAgeFilter(this.structure);
+    console.log(this.filterservice.getFilters())
+
+  }
   close() {
     this.viewCtrl.dismiss();
+  }
+
+  chooseGroup(){
+    let profileModal = this.modalCtrl.create(PopupModelPage);
+    profileModal.present();
   }
 
 }

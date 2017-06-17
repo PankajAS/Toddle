@@ -19,9 +19,9 @@ baseUrl = "http://kdv-api-acceptatie.kdv1.tactics.be/user/18555/token/51bbc8ccd6
 
   }
 
-  login(email:string, password:string) {
+  login(email:string, password:string, cityKey:string) {
     return new Promise(resolve => {
-      var json = JSON.stringify({ email: email, password: password });
+      var json = JSON.stringify({ email: email, password: password, city_key:cityKey });
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
       this.http.post('http://kdv-api-acceptatie.kdv1.tactics.be/login',

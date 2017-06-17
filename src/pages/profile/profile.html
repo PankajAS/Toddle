@@ -30,7 +30,8 @@
       {{name.child_full_name}}
      <p style="font-size:1.2rem;color:#8c8c8c">Brussels, Belgium</p>
 
-      <p  class="primaryColor font-varelap" style="margin-top:10px;font-size: 1.2rem;">{{"BIRTHDAY" | translate}}:</p>
+      <p  class="primaryColor font-varelap" style="margin-top:10px;font-size: 1.2rem;">{{"BIRTHDAY" | translate}}: <span style="font-size:1.2rem;color:#8c8c8c">
+        {{getBirthday(name.child_date_of_birth)}}</span></p>
     </ion-label>
   </ion-item>
 
@@ -80,7 +81,9 @@
               <ion-avatar style="margin:0px;">
                 <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
               </ion-avatar>
-              <image-icon item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/boy.png)"></image-icon>            </ion-item>
+              <image-icon *ngIf="name.guardian1_gender==='M'" item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/boy.png)"></image-icon>
+              <image-icon *ngIf="name.guardian1_gender==='V'" item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/girl.png)"></image-icon>
+            </ion-item>
           </ion-col>
         </ion-row>
 
@@ -104,7 +107,8 @@
               <ion-avatar style="margin:0px;">
                 <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
               </ion-avatar>
-              <image-icon item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/boy.png)"></image-icon>
+              <image-icon *ngIf="name.guardian2_gender==='M'" item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/boy.png)"></image-icon>
+              <image-icon *ngIf="name.guardian2_gender==='V'" item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/girl.png)"></image-icon>
             </ion-item>
           </ion-col>
         </ion-row>

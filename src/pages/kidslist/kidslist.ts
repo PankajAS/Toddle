@@ -25,7 +25,7 @@ export class KidslistPage implements OnInit{
   isGrid:boolean;
   image:string;
 //  todos: any;
-  userDetails:any;
+  userDetails:{[k: string]: any}={};
   myDate:any  = new Date().toLocaleDateString();
   today:any;
   birth:any;
@@ -61,15 +61,20 @@ export class KidslistPage implements OnInit{
       content: "Loading..."
     });
     loader.present();
+
     //get params
-    this.userDetails = {"userId":this.navParams.get("user_id"),"token":this.navParams.get("token")};
+    this.userDetails.data = this.navParams.data.data;
+    this.userDetails.installation_key = this.navParams.data.installation_key;
+    console.log(this.userDetails)
 
     //get location from LocationServiceProvider service using api
-    this.location.getLocation(this.userDetails.userId,this.userDetails.token).then((data)=>{
-      this.menuItems = data;
+    this.location.getLocation(this.userDetails.data.user_id, this.userDetails.data.token,
+      this.userDetails.installation_key).then((data)=>{
+      this.menuItems = data
 
       //get child list from KidsListServiceProvider using api
-      this.kidList.getKidsList(this.userDetails.userId, this.userDetails.token, this.menuItems[0].id).then((data) =>{
+      this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
+        this.menuItems[0].id, this.userDetails.installation_key).then((data) =>{
         this.childList = data;
         console.log(this.childList[0]);
         loader.dismissAll();
@@ -194,7 +199,9 @@ export class KidslistPage implements OnInit{
       content: "Loading..."
     });
     loader.present();
-    this.kidList.getKidsList(this.userDetails.userId, this.userDetails.token, location).then((data) =>{
+    this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
+      location, this.userDetails.installation_key).then((data) =>{
+
       this.childList = data;
       console.log(this.childList[0]);
       loader.dismissAll();

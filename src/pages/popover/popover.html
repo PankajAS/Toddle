@@ -1,10 +1,18 @@
 <ion-content class="page-popover-content" style="color: #ffffff;">
 
+
+
   <ion-grid text-center>
 
     <ion-row  >
       <ion-col col-12 text-center>
         <ion-title margin-top><p class="font-varelap" style="color: #ffffff; font-size: 1rem;">{{ "AGES_BETWEEN" | translate }}</p></ion-title>
+      </ion-col>
+      <ion-col col-12>
+        <ion-range dualKnobs="true" max="6" min="0" (ionChange)="changes()" [(ngModel)]="structure" color="light">
+          <ion-label range-left>{{structure.lower}}</ion-label>
+          <ion-label range-right>{{structure.upper}}</ion-label>
+        </ion-range>
       </ion-col>
 
       <ion-col col-12 text-center>
@@ -16,9 +24,7 @@
         <ion-row>
           <ion-col>
             <div style="float:right" class="vertical-align-content"> {{ "BOYS" | translate }}
-
               <div style="-webkit-mask-box-image:url(assets/boy.png);background-color:#FFFFFF; height:30px;width:30px; float: right;" >
-
               </div>
             </div>
 
@@ -44,7 +50,7 @@
             <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "GROUPS" | translate }} </span>
             <button small style="font-family:'Maven Pro'; font-size: 1rem;"
                     ion-button round
-                    class="button-white">
+                    class="button-white" (click)="chooseGroup()">
               <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "ALL_GROUPS" | translate }} </span>
             </button>
           </ion-col>
