@@ -2,7 +2,7 @@
 
 
 
-  <ion-grid text-center>
+  <ion-grid text-center padding>
 
     <ion-row  >
       <ion-col col-12 text-center>
@@ -15,24 +15,20 @@
         </ion-range>
       </ion-col>
 
-      <ion-col col-12 text-center>
-
-      </ion-col>
-
       <ion-col col-12>
 
         <ion-row>
-          <ion-col>
-            <div style="float:right" class="vertical-align-content"> {{ "BOYS" | translate }}
-              <div style="-webkit-mask-box-image:url(assets/boy.png);background-color:#FFFFFF; height:30px;width:30px; float: right;" >
+          <ion-col (click)="selectGender('M')">
+            <div style="float:right;" [style.color]="!color ? '#79C7B9':'#FFFFFF'" class="vertical-align-content"> {{ "BOYS" | translate }}
+              <div [style.background-color]="!color ? '#79C7B9':'#FFFFFF'" style="-webkit-mask-box-image:url(assets/boy.png);background-color:#FFFFFF; height:30px;width:30px; float: right;" >
               </div>
             </div>
 
           </ion-col>
-          <ion-col class="vertical-align-content">
-            <div style="-webkit-mask-box-image:url(assets/girl.png);background-color:#FFFFFF; height:30px;width:30px;" >
+          <ion-col class="vertical-align-content" (click)="selectGender('V')">
+            <div [style.background-color]="color ? '#79C7B9':'#FFFFFF'" style="-webkit-mask-box-image:url(assets/girl.png);background-color:#FFFFFF; height:30px;width:30px;" >
             </div>
-            {{ "GIRLS" | translate }}
+           <span [style.color]="color ? '#79C7B9':'#FFFFFF'" > {{ "GIRLS" | translate }}</span>
           </ion-col>
         </ion-row>
 
@@ -44,28 +40,31 @@
       </ion-col>
 
       <ion-col col-12>
+        <ion-row>
+          <ion-col col-6 style="display: flex;justify-content: space-between;">
+            <span style="font-family:'Maven Pro';display:flex;align-items: center;font-size: 1rem;">  {{ "GROUPS" | translate }} </span>
 
-        <ion-row text-center>
-          <ion-col>
-            <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "GROUPS" | translate }} </span>
-            <button small style="font-family:'Maven Pro'; font-size: 1rem;"
+            <button small style="width:70%; font-size: 1rem;"
                     ion-button round
                     class="button-white" (click)="chooseGroup()">
-              <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "ALL_GROUPS" | translate }} </span>
+
+              <span float-left style="font-family:'Maven Pro';font-weight: bold; font-size: 1rem;">  {{ "ALL_GROUPS" | translate }} </span>
             </button>
           </ion-col>
-          <ion-col>
-            <button small style="font-family:'Maven Pro'; font-size: 1rem;"
+
+          <ion-col col-6 style="display: flex;">
+
+            <button small style="font-family:'Maven Pro';width:70%; font-size: 1rem;"
                     ion-button round
                     class="button-white">
-              {{ "ALL" | translate }}
+            <span style="font-family:'Maven Pro';font-weight: bold; font-size: 1rem;" >  {{ "ALL" | translate }}</span>
             </button>
-            <span style="font-family:'Maven Pro'; font-size: 1rem;">  {{ "PLANNED" | translate }} </span>
+
+            <span float-right style="font-family:'Maven Pro';display:flex;align-items: center;font-size: 1rem;">  {{ "PLANNED" | translate }} </span>
+
           </ion-col>
         </ion-row>
-
       </ion-col>
-
 
       <ion-col col-12 text-center>
         <div>
@@ -86,5 +85,7 @@
   <ion-fab  right bottom>
     <button ion-fab mini (click)="close()" color="light"><ion-icon color="primary" name="close"></ion-icon></button>
   </ion-fab>
+
+
 </ion-content>
 

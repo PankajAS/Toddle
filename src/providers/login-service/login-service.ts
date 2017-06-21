@@ -14,23 +14,26 @@ import {AlertController} from "ionic-angular";
 @Injectable()
 export class LoginServiceProvider {
 posts:any;
-baseUrl = "http://kdv-api-acceptatie.kdv1.tactics.be/user/18555/token/51bbc8ccd69424aa3e61a9786ad2c0e9/locations"
+baseUrl = "http://kdv-api-acceptatie.kdv1.tactics.be/login"
   constructor(public http: Http,public alertCtrl: AlertController) {
 
   }
 
+  //login service method
   login(email:string, password:string, cityKey:string) {
     return new Promise(resolve => {
-      var json = JSON.stringify({ email: email, password: password, city_key:cityKey });
+      var json = JSON.stringify({ email: email, password: password});
       var headers = new Headers();
+      headers.append("city_key",cityKey);
       headers.append('Content-Type', 'application/json');
-      this.http.post('http://kdv-api-acceptatie.kdv1.tactics.be/login',
+      this.http.post(this.baseUrl,
         json, {
           headers: headers
         })
         .map(res => res.json())
         .subscribe(data => {
             this.posts = data;
+            console.log(data)
             resolve(this.posts);
           },
           error => alert(error),

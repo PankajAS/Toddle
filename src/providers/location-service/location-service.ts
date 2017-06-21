@@ -17,16 +17,20 @@ export class LocationServiceProvider {
   constructor(public http: Http) {
   }
 
+  //get location from api
   getLocation(userId:string,token:string,cityKey:string){
     return new Promise(resolve => {
       var header = new Headers();
+      header.append("token",token);
+      header.append("city_key",cityKey);
       header.append('Content-Type', 'application/json');
-      this.http.get(this.url+'city/'+ cityKey +'/'+'user/'+userId + '/token/' + token + '/locations', {headers: header})
+
+      this.http.get(this.url+'user/'+userId+'/locations', {headers: header})
         .map(res => res.json())
         .subscribe(data => {
             resolve(data);
           },
-          error => console.log(error),
+          error => alert(error),
           () => console.log("Finished")
         );
     });

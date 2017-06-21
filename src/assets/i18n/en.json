@@ -36,5 +36,10 @@
   "CANCEL":"CANCEL",
 
   "LOG_OUT":"Log Out",
-  "LOCATIONS":"Locations"
+  "LOCATIONS":"Locations",
+
+  "LOCATION_SELECTOR_POPUP_TITLE":"SELECT GROUPS",
+  "POPUP_CANCEL":"CANCEL",
+  "POPUP_SAVE":"SAVE"
+
 }

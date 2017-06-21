@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 
 /**
@@ -10,9 +10,15 @@ import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular
 @IonicPage()
 @Component({
   selector: 'page-popup-model',
-  templateUrl: 'popup-model.html',
+  templateUrl: 'popup-model.html'
 })
-export class PopupModelPage {
+export class PopupModelPage implements OnInit{
+
+  child_groups =[{}];
+
+  ngOnInit(): void {
+    this.child_groups = this.navParams.data;
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
 

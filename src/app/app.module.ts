@@ -24,6 +24,7 @@ import {IonicStorageModule} from "@ionic/storage";
 import {LocationServiceProvider} from "../providers/location-service/location-service";
 import { FiltersServiceProvider } from '../providers/filters-service/filters-service';
 import {PopupModelPage} from "../pages/popup-model/popup-model";
+import { KeyValuePipe } from '../pipes/key-value/key-value';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {PopupModelPage} from "../pages/popup-model/popup-model";
     ProgressBarComponent,
     ImageIconComponent,
     FilterPipe,
-    PopupModelPage
+    PopupModelPage,
+    KeyValuePipe
   ],
   imports: [
     BrowserModule,

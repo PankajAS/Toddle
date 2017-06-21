@@ -11,6 +11,20 @@
   <ion-navbar>
     <!-- here z-index:-1 to resolve back button not working after making title in center as its hiding behind the title -->
     <ion-title style="z-index: -1" align-title="center"><p text-center class="primaryColor font-varelap">{{"PROFILE_HEADER" | translate}}</p></ion-title>
+
+
+    <ion-buttons right >
+      <button button ion-button icon-only>
+        <image-icon imgUrl="url(assets/timer.png)"></image-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons right >
+      <button button ion-button icon-only clear>
+        <ion-icon color="primary" name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 

@@ -16,7 +16,7 @@ $font-path: "../assets/fonts";
 //android specific css
 .popover-md .popover-content {
   width: 100%!important;
-  height: 50%!important;;
+ // height: 50%!important;;
   border-top-right-radius: 20px!important;
   border-top-left-radius: 20px!important;
   color: #000;
@@ -25,6 +25,7 @@ $font-path: "../assets/fonts";
   -webkit-transform-origin: top left;
   transform-origin: top left;
   top:auto!important;
+  bottom: 0px;
   left: 0px !important;
   opacity: 0.9!important;
 }
@@ -33,6 +34,11 @@ $font-path: "../assets/fonts";
   height: 6px!important;
   background: #7DCABA!important;
   border-radius: 10px!important;
+}
+
+.button-round-md {
+  padding: 0 1rem!important;
+  border-radius: 5px!important;
 }
 
 .range-md .range-bar-active {

@@ -13,6 +13,7 @@ import {Storage} from "@ionic/storage";
 import {LocationServiceProvider} from "../../providers/location-service/location-service";
 import {LoginPage} from "../login/login";
 import {PopoverContentPage} from "../popover/popover";
+import {FiltersServiceProvider} from "../../providers/filters-service/filters-service";
 
 
 @Component({
@@ -22,9 +23,10 @@ import {PopoverContentPage} from "../popover/popover";
 export class KidslistPage implements OnInit{
   childName:{name:string,time:string, years:string, gender:string, avatar:string, icon:string}[];
   childList:any;
+  filterChildList:any;
   isGrid:boolean;
-  image:string;
-//  todos: any;
+  locationID:string;
+// todos: any;
   userDetails:{[k: string]: any}={};
   myDate:any  = new Date().toLocaleDateString();
   today:any;
@@ -41,20 +43,34 @@ export class KidslistPage implements OnInit{
               public storage: Storage,
               public location: LocationServiceProvider,
               private menu: MenuController,
-              public popoverCtrl: PopoverController){
+              public popoverCtrl: PopoverController,
+              public filterData:FiltersServiceProvider){
   }
 
+  ionViewWillEnter(){
+    console.log("test")
+  }
+
+  //open popover to filter child list
   openPopover(myEvent) {
-    let popover = this.popoverCtrl.create(PopoverContentPage);
+    let popover = this.popoverCtrl.create(PopoverContentPage, this.menuItems[this.locationID]);
     popover.present({
       ev: myEvent
-    });
+    })
+
+    popover.onDidDismiss(()=>{
+
+        this.filterChildList = this.filterData.filterData(this.childList);
+
+    })
   }
 
+  //on view did enter
   ionViewDidEnter() {
     this.menu.enable(true, 'menu1');
   }
 
+  //on view did load
   ionViewDidLoad(){
     console.log("view")
     let loader = this.loading.create({
@@ -65,17 +81,18 @@ export class KidslistPage implements OnInit{
     //get params
     this.userDetails.data = this.navParams.data.data;
     this.userDetails.installation_key = this.navParams.data.installation_key;
-    console.log(this.userDetails)
 
     //get location from LocationServiceProvider service using api
     this.location.getLocation(this.userDetails.data.user_id, this.userDetails.data.token,
       this.userDetails.installation_key).then((data)=>{
       this.menuItems = data
+      console.log(data)
 
       //get child list from KidsListServiceProvider using api
       this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
-        this.menuItems[0].id, this.userDetails.installation_key).then((data) =>{
+        this.menuItems[this.locationID].id, this.userDetails.installation_key).then((data) =>{
         this.childList = data;
+        this.filterChildList = this.childList;
         console.log(this.childList[0]);
         loader.dismissAll();
       });
@@ -91,10 +108,11 @@ export class KidslistPage implements OnInit{
 //    });
   }
 
+
   ngOnInit(): void {
     this.childName = childName;
     this.isGrid = true;
-    this.image = "../../assets/grid.png";
+    this.locationID = "0";
   }
 
   createTodo(){
@@ -194,15 +212,17 @@ export class KidslistPage implements OnInit{
 
   //get kids list by selected location from menu
   getKidListByLocation(location:string){
+    this.locationID = location;
     this.menu.close("menu1");
     let loader = this.loading.create({
       content: "Loading..."
     });
     loader.present();
     this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
-      location, this.userDetails.installation_key).then((data) =>{
+      this.locationID, this.userDetails.installation_key).then((data) =>{
 
       this.childList = data;
+      this.filterChildList = this.childList;
       console.log(this.childList[0]);
       loader.dismissAll();
     });

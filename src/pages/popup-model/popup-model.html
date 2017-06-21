@@ -1,32 +1,23 @@
 <ion-navbar class="modal-wrapper" *navbar>
   <ion-title>Sample Modal</ion-title>
 </ion-navbar>
-<ion-content padding class="sample-modal-page" text-center>
+<ion-content padding overflow-scroll="false" class="sample-modal-page" text-center>
 <div style="background-color: #FFFFFF; padding: 10px; margin-top: 150px; border-radius: 5px;">
-  <p class="font-varelap primaryColor">SELECT GROUPS</p>
+  <p class="font-varelap primaryColor">{{"LOCATION_SELECTOR_POPUP_TITLE" |   translate}}</p>
+  <ion-scroll  scrollY="true" style="overflow: scroll;white-space: nowrap; height: 180px" >
 
-    <ion-item no-lines >
-      <ion-label class="font-varelap" color="grey">Cucumber</ion-label>
+    <ion-item no-lines *ngFor="let group_name of child_groups" >
+      <ion-label class="font-varelap" color="grey">{{group_name}}</ion-label>
       <ion-checkbox no-margin color="primary"></ion-checkbox>
     </ion-item>
-
-  <ion-item no-lines >
-    <ion-label class="font-varelap" color="grey">Cucumber</ion-label>
-    <ion-checkbox no-margin color="primary"></ion-checkbox>
-  </ion-item>
-
-  <ion-item no-lines >
-    <ion-label class="font-varelap" color="grey">Cucumber</ion-label>
-    <ion-checkbox no-margin color="primary"></ion-checkbox>
-  </ion-item>
-
+  </ion-scroll>
 <ion-buttons right>
     <button ion-button clear class="font-varelap" (click)="dismiss()">
-      CANCEL
+      {{ "POPUP_CANCEL" | translate}}
     </button>
 
   <button ion-button clear class="font-varelap" (click)="dismiss()">
-    SAVE
+    {{ "POPUP_SAVE" | translate}}
   </button>
 </ion-buttons>
 </div>
