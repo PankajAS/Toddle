@@ -73,8 +73,9 @@
             <ion-col col-10 col-md-10 col-sm-8 col-lg-8>
                   <ion-item no-padding>
                     <ion-avatar style="margin:0px;">
-                      <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
-                      <span item-right class="time">
+                      <img
+                        src ="{{names.image_url != null ? names.image_url  : 'assets/child_profile_default.png'}}"
+>                      <span item-right class="time">
                      <span class="hours">1h </span>
                         <ion-note style="font-size: 1rem">24m</ion-note>
                       </span>
@@ -92,7 +93,7 @@
             </ion-col>
 
             <ion-col style="top:-10px">
-            <span class="years"><span style="font-size: 1.3rem">{{calculateAge(names.child_date_of_birth)}} </span><span style="font-size: 0.9rem ; top: 0px">{{ "YEARS" | translate }}</span></span>
+            <span class="years"><span style="font-size: 1.3rem">{{names.child_age}} </span><span style="font-size: 0.9rem ; top: 0px">{{ "YEARS" | translate }}</span></span>
             </ion-col>
             <ion-col class="bottom-col">
               <span *ngIf="names.child_gender == 'M'">
@@ -133,8 +134,8 @@
     </ion-row>
   </ion-grid>
   <ion-fab  right bottom>
-    <button ion-fab mini>
-      <image-icon icon-only (click)="openPopover($event)" height="18px" width="18px" color="#FFFFFF" imgUrl="url(assets/filter.png)">
+    <button ion-fab mini (click)="openPopover($event)">
+      <image-icon icon-only height="18px" width="18px" color="#FFFFFF" imgUrl="url(assets/filter.png)">
       </image-icon></button>
   </ion-fab>
 

@@ -38,11 +38,11 @@
     max-width: 85px !important;
     max-height: 85px !important;"
            [style.border]="'3px solid #0D9C80'"
-        src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
+           src ="{{name.image_url != null ? name.image_url  : 'assets/child_profile_default.png'}}">
     </ion-avatar>
     <ion-label class="font-varelap" color="primary">
       {{name.child_full_name}}
-     <p style="font-size:1.2rem;color:#8c8c8c">Brussels, Belgium</p>
+     <p style="font-size:1.2rem;color:#8c8c8c">{{name.child_place_of_residence}}</p>
 
       <p  class="primaryColor font-varelap" style="margin-top:10px;font-size: 1.2rem;">{{"BIRTHDAY" | translate}}: <span style="font-size:1.2rem;color:#8c8c8c">
         {{getBirthday(name.child_date_of_birth)}}</span></p>
@@ -50,34 +50,20 @@
   </ion-item>
 
   <ion-item no-lines text-wrap>
-    <p class="font-varelap" style="font-size: 1.3rem;font-weight: bold;color: #7a7a7a">Each list can include a header at the top of the list:
-      Each list can include a header at the top of the list:
+    <p class="font-varelap" style="font-size: 1.3rem;font-weight: bold;color: #7a7a7a">{{name.child_info}}
     </p>
 
   </ion-item>
 
   <ion-item no-lines >
-    <p> <span class="primaryColor font-varelap"> {{"ALLERGIC_TO" | translate}}:</span> Tomatoes</p>
+    <p> <span class="primaryColor font-varelap"> {{"ALLERGIC_TO" | translate}}:</span> {{name.allergies}}</p>
   </ion-item>
 
   <ion-row style="text-align: center;">
     <ion-col>
       <div class="circle">
-        <div class="font-varelap"> 5</div>
+        <div class="font-varelap"> {{name.child_age}}</div>
         <span class="font-varelap">yrs</span>
-      </div>
-    </ion-col>
-    <ion-col >
-      <div class="circle">
-        <div class="font-varelap">22</div>
-        <span class="font-varelap">kgm</span>
-      </div>
-    </ion-col>
-
-    <ion-col  >
-      <div class="circle">
-        <div class="font-varelap">124</div>
-        <span class="font-varelap">cm</span>
       </div>
     </ion-col>
   </ion-row>
@@ -93,7 +79,7 @@
           <ion-col>
             <ion-item no-padding>
               <ion-avatar style="margin:0px;">
-                <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
+                <img src="assets/child_profile_default.png">
               </ion-avatar>
               <image-icon *ngIf="name.guardian1_gender==='M'" item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/boy.png)"></image-icon>
               <image-icon *ngIf="name.guardian1_gender==='V'" item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/girl.png)"></image-icon>
@@ -106,8 +92,9 @@
             <h4 class="name primaryColor font-varelap">{{name.guardian1_first_name+" "+name.guardian1_last_name}}</h4>
           </ion-col>
           <ion-col style="top:-10px">
-            <p class="greyColor font-varelap text-size">9919506387</p>
-            <p class="greyColor font-varelap card-name">M. Andre Dupont<br> Rue Du Cornet 6</p>
+            <p class="greyColor font-varelap text-size">{{name.guardian1_phone_numbers.cell}}</p>
+
+            <p class="greyColor font-varelap card-name">{{name.guardian1_street}}<br> {{name.guardian1_city}}</p>
           </ion-col>
         </ion-row>
       </ion-card>
@@ -119,7 +106,7 @@
           <ion-col>
             <ion-item no-padding>
               <ion-avatar style="margin:0px;">
-                <img src="http://www.slate.com/content/dam/slate/articles/technology/data_mine/2013/09/130903_DATA_PrivacyAndKidsOnline.jpg.CROP.thumbnail-small.jpg">
+                <img src="assets/child_profile_default.png">
               </ion-avatar>
               <image-icon *ngIf="name.guardian2_gender==='M'" item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/boy.png)"></image-icon>
               <image-icon *ngIf="name.guardian2_gender==='V'" item-right height="25px" width="25px" color="#B8B8B8" imgUrl="url(assets/girl.png)"></image-icon>
@@ -133,8 +120,8 @@
           </ion-col>
 
           <ion-col style="top:-10px">
-            <p class="font-varelap text-size">9919506387</p>
-            <p class="font-varelap card-name">M. Andre Dupont<br> Rue Du Cornet 6</p>
+            <p class="font-varelap text-size">{{name.guardian2_phone_numbers.cell}}</p>
+            <p class="font-varelap card-name">{{name.guardian2_street}}<br> {{name.guardian2_city}}</p>
           </ion-col>
         </ion-row>
       </ion-card>

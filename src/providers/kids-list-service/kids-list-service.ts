@@ -19,8 +19,10 @@ export class KidsListServiceProvider {
 
     return new Promise(resolve => {
       var header = new Headers();
+      header.append("city_key", cityKey);
+      header.append("token", token);
       header.append('Content-Type', 'application/json');
-      this.http.get(this.url +'city/'+cityKey +'/location/'+ location +'/day/2017-06-12/user/' + userId + '/token/' + token + '/children', {headers: header})
+      this.http.get(this.url +'location/'+ location +'/day/2017-06-12/user/' + userId + '/children', {headers: header})
         .map(res => res.json())
         .subscribe(data =>{
           resolve(data);

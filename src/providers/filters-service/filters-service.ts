@@ -11,7 +11,7 @@ import { filterData } from "../../data/filterData.interface";
 */
 @Injectable()
 export class FiltersServiceProvider {
-  age:any
+  age:{lower:string, upper:string}
   gender:string;
   male:Boolean;
   childGroups:any;
@@ -19,12 +19,14 @@ export class FiltersServiceProvider {
 
   constructor(public http: Http) {
     this.filteredData = {age:this.age,child_gender:"M"};
+    this.age = {lower:'2', upper:'5'};
   }
 
   //set filter age between
   setAgeFilter(ageFilter:any){
     this.age = ageFilter;
     this.filteredData = {age:this.age,child_gender:"M"};
+    console.log(this.filteredData)
   }
 
   //get filter age
@@ -36,14 +38,22 @@ export class FiltersServiceProvider {
   setGender(gender:any){
     this.gender = gender;
     this.filteredData = {age:this.age,child_gender:gender};
+    console.log(this.filteredData)
   }
 
   //get filter list from popover
   filterData(data:any){
+    console.log(this.filteredData)
+
     return data.filter((item) => {
-      console.log(item)
-   if(item.child_gender != null)
-      return item.child_gender.toLowerCase().indexOf(this.filteredData.child_gender.toLowerCase()) > -1;
+    //  console.log(item)
+   if(item.child_gender != null && this.filteredData.age == null) {
+     return item.child_gender.toLowerCase().indexOf(this.filteredData.child_gender.toLowerCase()) > -1;
+   }else if(item.child_age!= null && item.child_gender != null){
+        return (item.child_gender.toLowerCase().indexOf(this.filteredData.child_gender.toLowerCase()) > -1
+          && (item.child_age >= this.filteredData.age['lower']
+        && item.child_age <= this.filteredData.age['upper']));
+   }
     });
   }
 }

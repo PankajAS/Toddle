@@ -45,10 +45,12 @@ export class KidslistPage implements OnInit{
               private menu: MenuController,
               public popoverCtrl: PopoverController,
               public filterData:FiltersServiceProvider){
+
+
   }
 
   ionViewWillEnter(){
-    console.log("test")
+
   }
 
   //open popover to filter child list
@@ -86,7 +88,7 @@ export class KidslistPage implements OnInit{
     this.location.getLocation(this.userDetails.data.user_id, this.userDetails.data.token,
       this.userDetails.installation_key).then((data)=>{
       this.menuItems = data
-      console.log(data)
+      //console.log(data)
 
       //get child list from KidsListServiceProvider using api
       this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
@@ -94,7 +96,10 @@ export class KidslistPage implements OnInit{
         this.childList = data;
         this.filterChildList = this.childList;
         console.log(this.childList[0]);
-        loader.dismissAll();
+        loader.dismissAll()
+        this.todoService.getTodos().then((data) => {
+          console.log(data)
+        })
       });
     });
 

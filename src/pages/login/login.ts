@@ -22,6 +22,7 @@ userDetails:{[k: string]: any}={};
     this.username='api.test@tactics.be';
     this.password='passw';
     this.installation_key ='leuven_acc';
+
   }
 
   login(){
@@ -34,9 +35,11 @@ userDetails:{[k: string]: any}={};
       this.loginReq.login(this.username, this.password, this.installation_key).then((data) => {
         this.userDetails.data = data;
         this.userDetails.installation_key = this.installation_key;
-       // this.storage.set("userId",this.userDetails.user_id);
-       // this.storage.set("token",this.userDetails.token);
-        //console.log( this.userDetails.installation_key)
+        this.storage.set("userId",this.userDetails.data.user_id);
+        this.storage.set("token",this.userDetails.data.token);
+        this.storage.set("installation_key",this.userDetails.installation_key);
+        console.log(this.userDetails.data.user_id)
+        console.log(this.userDetails)
         this.navCtrl.setRoot(KidslistPage,this.userDetails);
         loader.dismissAll();
       }, function (error) {
