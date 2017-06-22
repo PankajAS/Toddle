@@ -55,10 +55,6 @@
 
   </ion-item>
 
-  <ion-item no-lines >
-    <p> <span class="primaryColor font-varelap"> {{"ALLERGIC_TO" | translate}}:</span> {{name.allergies}}</p>
-  </ion-item>
-
   <ion-row style="text-align: center;">
     <ion-col>
       <div class="circle">
@@ -66,7 +62,21 @@
         <span class="font-varelap">yrs</span>
       </div>
     </ion-col>
+
+    <ion-col>
+      <div class="circle">
+        <div class="font-varelap">0h</div>
+        <span class="font-varelap">0m</span>
+      </div>
+    </ion-col>
+
   </ion-row>
+
+  <ion-item no-lines >
+    <p> <span class="primaryColor font-varelap"> {{"ALLERGIC_TO" | translate}}:</span> {{name.allergies}}</p>
+  </ion-item>
+
+
 
   <ion-item text-center no-lines padding-top>
     <p class="primaryColor font-varelap">{{"EMERGENCY_CONTACTS" | translate}}</p>
