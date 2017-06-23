@@ -186,20 +186,6 @@ export class KidslistPage implements OnInit{
     this.todoService.deleteTodo(todo);
   }
 
-
-  //calculating child age from birth date
-  calculateAge(date:string){
-    this.today = new Date(this.myDate);
-    this.birth = new Date(date);
-    var ms = this.today.getTime()-this.birth.getTime();
-    var second = ms/1000;
-    var minutes = second/60;
-    var hours = minutes/60;
-    var days = hours/24;
-    var years = days/365;
-    return Math.round(years);
-  }
-
   //navigation to child profile page
   goToProfile(name:{}){
     this.navCtrl.push(ProfilePage, name);
