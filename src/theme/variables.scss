@@ -108,6 +108,14 @@ ion-title {
   text-align: center;
 }
 
+progress-bar .date {
+  box-shadow: 2px 2px 2px 2px lightgrey !important;
+}
+
+page-detailsview .vertical_line {
+  margin-top: 0.2rem!important;
+}
+
 $greyColor:#9D9D9D;
 // Named Color Variables
 // --------------------------------------------------
