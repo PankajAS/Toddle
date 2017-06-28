@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, Platform} from 'ionic-angular';
 import { KidslistPage } from '../kidslist/kidslist';
 import {LoginServiceProvider} from "../../providers/login-service/login-service";
 import { LoadingController } from 'ionic-angular';
@@ -18,10 +18,11 @@ userDetails:{[k: string]: any}={};
 
 
   constructor(public navCtrl: NavController, public loginReq: LoginServiceProvider,
-              public loading: LoadingController, public storage:Storage) {
+              public loading: LoadingController,public platform: Platform, public storage:Storage) {
     this.username='api.test@tactics.be';
     this.password='passw';
     this.installation_key ='leuven_acc';
+
 
   }
 

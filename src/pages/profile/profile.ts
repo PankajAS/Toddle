@@ -18,6 +18,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.name = this.navParams.data;
     console.log(this.name)
+    
   }
 
   ionViewDidLoad() {
