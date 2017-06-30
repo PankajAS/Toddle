@@ -3,7 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { KidslistPage } from '../pages/kidslist/kidslist';
@@ -27,6 +26,7 @@ import { KeyValuePipe } from '../pipes/key-value/key-value';
 import {SQLite} from "@ionic-native/sqlite";
 import { KidsDatabaseProvider } from '../providers/kids-database/kids-database';
 import { Sqlite } from '../providers/kids-database/sqlite';
+import { Network } from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -76,7 +76,9 @@ import { Sqlite } from '../providers/kids-database/sqlite';
     FiltersServiceProvider,
     SQLite,
     KidsDatabaseProvider,
-    Sqlite
+    Sqlite,
+    Network
+    
   ]
 })
 export class AppModule {}

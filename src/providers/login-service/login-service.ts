@@ -4,6 +4,7 @@ import { Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import {AlertController} from "ionic-angular";
+import { Sqlite } from "../../providers/kids-database/sqlite";
 
 /*
   Generated class for the LoginServiceProvider provider.
@@ -14,10 +15,12 @@ import {AlertController} from "ionic-angular";
 @Injectable()
 export class LoginServiceProvider {
 posts:any;
-baseUrl = "http://kdv-api-acceptatie.kdv1.tactics.be/login"
-  constructor(public http: Http,public alertCtrl: AlertController) {
+baseUrl = "http://kdv-api-acceptatie.kdv1.tactics.be/login";
 
-  }
+  constructor(public http: Http,
+              public alertCtrl: AlertController, 
+              public sqlite:Sqlite) { }
+
 
   //login service method
   login(email:string, password:string, cityKey:string) {
@@ -32,8 +35,12 @@ baseUrl = "http://kdv-api-acceptatie.kdv1.tactics.be/login"
         })
         .map(res => res.json())
         .subscribe(data => {
-            this.posts = data;
-            console.log(data)
+            this.posts = data;     
+            console.log(this.posts)   
+            this.sqlite.addUserInfo({"userId":this.posts.user_id,"token":this.posts.token,"location_key":cityKey,"password":password})
+            .then((data)=>{    
+              console.log(data)       
+            })                                    
             resolve(this.posts);
           },
           error => alert(error),

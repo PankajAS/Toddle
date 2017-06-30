@@ -14,6 +14,7 @@ import { LoginPage } from "../login/login";
 import { PopoverContentPage } from "../popover/popover";
 import { FiltersServiceProvider } from "../../providers/filters-service/filters-service";
 import { Sqlite } from "../../providers/kids-database/sqlite";
+import { Network } from '@ionic-native/network';
 
 
 @Component({
@@ -43,7 +44,8 @@ export class KidslistPage implements OnInit {
     private menu: MenuController,
     public popoverCtrl: PopoverController,
     public kidsDb: Sqlite,
-    public filterData: FiltersServiceProvider) {
+    public filterData: FiltersServiceProvider,
+    public network: Network) {
 
   }
 
@@ -66,6 +68,22 @@ export class KidslistPage implements OnInit {
   //on view did enter
   ionViewDidEnter() {
     this.menu.enable(true, 'menu1');
+    this.network.onDisconnect().subscribe(() => {
+      console.log('network was disconnected :-(');
+    });
+
+    this.network.onConnect().subscribe((data) => {
+      console.log(data.type);
+
+      // We just got a connection but we need to wait briefly
+      // before we determine the connection type. Might need to wait.
+      // prior to doing any api requests as well.
+      setTimeout(() => {
+        if (this.network.type === 'wifi') {
+          console.log('we got a wifi connection, woohoo!');
+        }
+      }, 3000);
+    });
   }
 
   //on view did load
@@ -80,25 +98,48 @@ export class KidslistPage implements OnInit {
     this.userDetails.data = this.navParams.data.data;
     this.userDetails.installation_key = this.navParams.data.installation_key;
 
-    //get location from LocationServiceProvider service using api
-    this.location.getLocation(this.userDetails.data.user_id, this.userDetails.data.token,
-      this.userDetails.installation_key).then((data) => {
-        this.menuItems = data
-       
-        this.kidsDb.addItem(this.menuItems).then((data)=>{
-          console.log(data)
-        })
 
-        //get child list from KidsListServiceProvider using api
-        this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
-          this.menuItems[this.locationID].id, this.userDetails.installation_key).then((data) => {
-            this.childList = data;
-            this.filterChildList = this.childList;            
-            loader.dismissAll()
-          });
-      });
+    if (this.network.type != 'none') {
+    
+      //get location from LocationServiceProvider service using api
+      this.location.getLocation(this.userDetails.data.user_id, this.userDetails.data.token,
+        this.userDetails.installation_key).then((data) => {
+          if(data !=null){
+          this.menuItems = data
+
+          //store and update location data in DataBase
+          this.kidsDb.addLocation(data, this.userDetails.installation_key).then((data) => {
+            if (data) {
+              //  this.menuItems = JSON.parse(data[0].locations);
+              //  console.log(this.menuItems)
+              console.log("Updated")
+            }
+          })
+
+          //get child list from KidsListServiceProvider using api
+          this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
+            this.menuItems[this.locationID].id, this.userDetails.installation_key).then((data) => {
+              this.childList = data;
+              console.log(this.childList)
+              this.filterChildList = this.childList;
+              this.kidsDb.addKidsList(this.childList, this.userDetails.installation_key)
+              loader.dismissAll();
+            });
+          }else
+          {
+             loader.dismissAll()
+          }
+        });
+    } else {
+
+      this.kidsDb.getLocations().then((data) => {
+        this.menuItems = JSON.parse(data[0].locations);
+        
+        loader.dismissAll()
+      })
+
+    }
   }
-
 
   ngOnInit(): void {
     this.childName = childName;
@@ -134,7 +175,7 @@ export class KidslistPage implements OnInit {
       this.locationID, this.userDetails.installation_key).then((data) => {
 
         this.childList = data;
-        this.filterChildList = this.childList;   
+        this.filterChildList = this.childList;
         loader.dismissAll();
       });
   }
