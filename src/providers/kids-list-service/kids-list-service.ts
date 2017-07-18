@@ -31,6 +31,8 @@ export class KidsListServiceProvider {
           () => console.log("Finished")
         );
     });
+
+    
   }
 
 }

@@ -1,55 +1,55 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import childName from '../../data/childInfo';
 import {
   AlertController, LoadingController, MenuController, NavController, NavParams,
   PopoverController
 } from "ionic-angular";
-import {ProfilePage} from "../profile/profile";
-import {DetailsviewPage} from "../detailsview/detailsview";
-import {TodosProvider} from "../../providers/todos/todos";
-import {KidsListServiceProvider} from "../../providers/kids-list-service/kids-list-service";
-import {Storage} from "@ionic/storage";
-import {LocationServiceProvider} from "../../providers/location-service/location-service";
-import {LoginPage} from "../login/login";
-import {PopoverContentPage} from "../popover/popover";
-import {FiltersServiceProvider} from "../../providers/filters-service/filters-service";
+import { ProfilePage } from "../profile/profile";
+import { DetailsviewPage } from "../detailsview/detailsview";
+import { KidsListServiceProvider } from "../../providers/kids-list-service/kids-list-service";
+import { Storage } from "@ionic/storage";
+import { LocationServiceProvider } from "../../providers/location-service/location-service";
+import { LoginPage } from "../login/login";
+import { PopoverContentPage } from "../popover/popover";
+import { FiltersServiceProvider } from "../../providers/filters-service/filters-service";
+import { Sqlite } from "../../providers/kids-database/sqlite";
+import { Network } from '@ionic-native/network';
 
 
 @Component({
   selector: 'page-kidslist',
   templateUrl: 'kidslist.html',
 })
-export class KidslistPage implements OnInit{
-  childName:{name:string,time:string, years:string, gender:string, avatar:string, icon:string}[];
-  childList:any;
-  filterChildList:any;
-  isGrid:boolean;
-  locationID:string;
-// todos: any;
-  userDetails:{[k: string]: any}={};
-  myDate:any  = new Date().toLocaleDateString();
-  today:any;
-  birth:any;
-  user:any;
-  menuItems:any;
+export class KidslistPage implements OnInit {
+  childName: { name: string, time: string, years: string, gender: string, avatar: string, icon: string }[];
+  childList: any;
+  filterChildList: any;
+  isGrid: boolean;
+  locationID: string;
+  userDetails: { [k: string]: any } = {};
+  myDate: any = new Date().toLocaleDateString();
+  today: any;
+  birth: any;
+  user: any;
+  menuItems: any;
 
-  constructor(private navCtrl:NavController,
-              public navParams: NavParams,
-              public kidList: KidsListServiceProvider,
-              public todoService: TodosProvider,
-              public alertCtrl: AlertController,
-              public loading: LoadingController,
-              public storage: Storage,
-              public location: LocationServiceProvider,
-              private menu: MenuController,
-              public popoverCtrl: PopoverController,
-              public filterData:FiltersServiceProvider){
-
+  constructor(private navCtrl: NavController,
+    public navParams: NavParams,
+    public kidList: KidsListServiceProvider,
+    public alertCtrl: AlertController,
+    public loading: LoadingController,
+    public storage: Storage,
+    public location: LocationServiceProvider,
+    private menu: MenuController,
+    public popoverCtrl: PopoverController,
+    public kidsDb: Sqlite,
+    public filterData: FiltersServiceProvider,
+    public network: Network) {
 
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
 
   }
 
@@ -60,20 +60,34 @@ export class KidslistPage implements OnInit{
       ev: myEvent
     })
 
-    popover.onDidDismiss(()=>{
-
-        this.filterChildList = this.filterData.filterData(this.childList);
-
+    popover.onDidDismiss(() => {
+      this.filterChildList = this.filterData.filterData(this.childList);
     })
   }
 
   //on view did enter
   ionViewDidEnter() {
     this.menu.enable(true, 'menu1');
+    this.network.onDisconnect().subscribe(() => {
+      console.log('network was disconnected :-(');
+    });
+
+    this.network.onConnect().subscribe((data) => {
+      console.log(data.type);
+
+      // We just got a connection but we need to wait briefly
+      // before we determine the connection type. Might need to wait.
+      // prior to doing any api requests as well.
+      setTimeout(() => {
+        if (this.network.type === 'wifi') {
+          console.log('we got a wifi connection, woohoo!');
+        }
+      }, 3000);
+    });
   }
 
   //on view did load
-  ionViewDidLoad(){
+  ionViewDidLoad() {
     console.log("view")
     let loader = this.loading.create({
       content: "Loading..."
@@ -84,12 +98,8 @@ export class KidslistPage implements OnInit{
     this.userDetails.data = this.navParams.data.data;
     this.userDetails.installation_key = this.navParams.data.installation_key;
 
-    //get location from LocationServiceProvider service using api
-    this.location.getLocation(this.userDetails.data.user_id, this.userDetails.data.token,
-      this.userDetails.installation_key).then((data)=>{
-      this.menuItems = data
-      //console.log(data)
 
+<<<<<<< HEAD
       //get child list from KidsListServiceProvider using api
       this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
         this.menuItems[this.locationID].id, this.userDetails.installation_key).then((data) =>{
@@ -99,17 +109,49 @@ export class KidslistPage implements OnInit{
         loader.dismissAll()
       });
     });
+=======
+    if (this.network.type != 'none') {
+    
+      //get location from LocationServiceProvider service using api
+      this.location.getLocation(this.userDetails.data.user_id, this.userDetails.data.token,
+        this.userDetails.installation_key).then((data) => {
+          if(data !=null){
+          this.menuItems = data
 
-//    this.todoService.getTodos().then((data) => {
-//      this.todos = data;
-//      console.log(data);
-//    });
+          //store and update location data in DataBase
+          this.kidsDb.addLocation(data, this.userDetails.installation_key).then((data) => {
+            if (data) {
+              //  this.menuItems = JSON.parse(data[0].locations);
+              //  console.log(this.menuItems)
+              console.log("Updated")
+            }
+          })
 
-//    this.login.login("api.test@tactics.be","passw").then((data)=>{
-//      console.log(data);
-//    });
+          //get child list from KidsListServiceProvider using api
+          this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
+            this.menuItems[this.locationID].id, this.userDetails.installation_key).then((data) => {
+              this.childList = data;
+              console.log(this.childList)
+              this.filterChildList = this.childList;
+              this.kidsDb.addKidsList(this.childList, this.userDetails.installation_key)
+              loader.dismissAll();
+            });
+          }else
+          {
+             loader.dismissAll()
+          }
+        });
+    } else {
+>>>>>>> 6941ac2097fc02803649770b9187f82718cfbc3d
+
+      this.kidsDb.getLocations().then((data) => {
+        this.menuItems = JSON.parse(data[0].locations);
+        
+        loader.dismissAll()
+      })
+
+    }
   }
-
 
   ngOnInit(): void {
     this.childName = childName;
@@ -117,6 +159,7 @@ export class KidslistPage implements OnInit{
     this.locationID = "0";
   }
 
+<<<<<<< HEAD
   createTodo(){
     let prompt = this.alertCtrl.create({
       title: 'Add',
@@ -203,24 +246,26 @@ export class KidslistPage implements OnInit{
     var years = days/365;
     return Math.round(years);
   }
+=======
+>>>>>>> 6941ac2097fc02803649770b9187f82718cfbc3d
 
   //navigation to child profile page
-  goToProfile(name:{}){
+  goToProfile(name: {}) {
     this.navCtrl.push(ProfilePage, name);
   }
 
   //navigation to child info page
-  goDetailsView(name:string){
+  goDetailsView(name: string) {
     this.navCtrl.push(DetailsviewPage, name);
   }
 
   //change list view to grid or list view
-  changeView(isGrid:boolean){
+  changeView(isGrid: boolean) {
     this.isGrid = isGrid;
   }
 
   //get kids list by selected location from menu
-  getKidListByLocation(location:string){
+  getKidListByLocation(location: string) {
     this.locationID = location;
     this.menu.close("menu1");
     let loader = this.loading.create({
@@ -228,17 +273,16 @@ export class KidslistPage implements OnInit{
     });
     loader.present();
     this.kidList.getKidsList(this.userDetails.data.user_id, this.userDetails.data.token,
-      this.locationID, this.userDetails.installation_key).then((data) =>{
+      this.locationID, this.userDetails.installation_key).then((data) => {
 
-      this.childList = data;
-      this.filterChildList = this.childList;
-      console.log(this.childList[0]);
-      loader.dismissAll();
-    });
+        this.childList = data;
+        this.filterChildList = this.childList;
+        loader.dismissAll();
+      });
   }
 
   //logout
-  logOut(){
+  logOut() {
     this.navCtrl.setRoot(LoginPage);
   }
 }

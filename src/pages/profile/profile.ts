@@ -18,6 +18,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.name = this.navParams.data;
     console.log(this.name)
+    
   }
 
   ionViewDidLoad() {
@@ -30,7 +31,11 @@ export class ProfilePage {
     var objDate = new Date(a[0]),
       locale = "en-us",
       month = objDate.toLocaleString(locale, { month: "long" });
-    let date = new Date(birthday);
+    //let date = new Date(birthday);
+
+    var dateString = birthday;
+    var date = new Date(dateString.replace(' ', 'T'));
+
     this.displayDate = date.getDay();
     this.year = date.getFullYear();
     return this.getGetOrdinal(this.displayDate)+" "+month+" "+this.year;

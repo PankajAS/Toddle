@@ -3,7 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { KidslistPage } from '../pages/kidslist/kidslist';
@@ -12,7 +11,6 @@ import {DetailsviewPage} from "../pages/detailsview/detailsview";
 import {PopoverContentPage} from "../pages/popover/popover";
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { ImageIconComponent } from '../components/image-icon/image-icon';
-import { TodosProvider } from '../providers/todos/todos';
 import { LoginServiceProvider } from '../providers/login-service/login-service';
 import {Http, HttpModule} from '@angular/http';
 import { KidsListServiceProvider } from '../providers/kids-list-service/kids-list-service';
@@ -25,7 +23,10 @@ import {LocationServiceProvider} from "../providers/location-service/location-se
 import { FiltersServiceProvider } from '../providers/filters-service/filters-service';
 import {PopupModelPage} from "../pages/popup-model/popup-model";
 import { KeyValuePipe } from '../pipes/key-value/key-value';
-
+import {SQLite} from "@ionic-native/sqlite";
+import { KidsDatabaseProvider } from '../providers/kids-database/kids-database';
+import { Sqlite } from '../providers/kids-database/sqlite';
+import { Network } from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -69,11 +70,15 @@ import { KeyValuePipe } from '../pipes/key-value/key-value';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TodosProvider,
     LoginServiceProvider,
     LocationServiceProvider,
     KidsListServiceProvider,
-    FiltersServiceProvider
+    FiltersServiceProvider,
+    SQLite,
+    KidsDatabaseProvider,
+    Sqlite,
+    Network
+    
   ]
 })
 export class AppModule {}
