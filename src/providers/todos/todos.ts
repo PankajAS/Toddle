@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import * as PouchDB from 'pouchdb';
+import PouchDB from 'pouchdb';
+import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 
-/*
-  Generated class for the TodosProvider provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
+/*import * as PouchDB from 'pouchdb';
+ Generated class for the TodosProvider provider.
+ See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+ for more info on providers and Angular 2 DI.
+ */
 @Injectable()
 export class TodosProvider {
   data: any;
@@ -15,8 +15,9 @@ export class TodosProvider {
   remote: any;
 
   constructor() {
-    this.db = new PouchDB('pizone');
-    this.remote = 'http://localhost:5984/pizone';
+    PouchDB.plugin(cordovaSqlitePlugin);
+    this.db = new PouchDB('testdb',  { adapter: 'cordova-sqlite' });
+    this.remote = 'http://localhost:5984/testdb';
 
     let options = {
       live: true,

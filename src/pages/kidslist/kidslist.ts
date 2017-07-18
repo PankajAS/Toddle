@@ -97,9 +97,6 @@ export class KidslistPage implements OnInit{
         this.filterChildList = this.childList;
         console.log(this.childList[0]);
         loader.dismissAll()
-        this.todoService.getTodos().then((data) => {
-          console.log(data)
-        })
       });
     });
 
@@ -140,6 +137,13 @@ export class KidslistPage implements OnInit{
           text: 'Save',
           handler: data => {
             this.todoService.createTodo({title: data.title, name:data.name});
+            this.todoService.getTodos().then((data) => {
+              let prompt2 = this.alertCtrl.create({
+                title: "data",
+                message:data[0].title
+              });
+              prompt2.present();
+            });
           }
         }
       ]
